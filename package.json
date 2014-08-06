@@ -1,0 +1,15 @@
+{
+  "name": "metaphorjs-namespace",
+  "version": "1.0.0",
+  "description": "",
+  "main": "metaphorjs.namespace.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://kuindji@bitbucket.org/kuindji/metaphorjs-namespace.git"
+  },
+  "author": "",
+  "license": "MIT"
+}
