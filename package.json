@@ -2,7 +2,7 @@
   "name": "metaphorjs-namespace",
   "version": "1.0.0",
   "description": "",
-  "main": "metaphorjs.namespace.js",
+  "main": "dist/metaphorjs.namespace.amd.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

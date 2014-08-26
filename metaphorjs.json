@@ -1,0 +1,31 @@
+{
+    "standalone": {
+        "wrap": true,
+        "auto": true,
+        "target": "dist/metaphorjs.namespace.js",
+        "files": [
+            "../metaphorjs/src/MetaphorJs.js",
+            "src/metaphorjs.namespace.js"
+        ]
+    },
+
+    "module": {
+        "wrap": true,
+        "auto": true,
+        "target": "dist/metaphorjs.namespace.amd.js",
+        "files": [
+            "src/metaphorjs.namespace.js"
+        ],
+        "prepend": [
+            "../metaphorjs/src/amd/MetaphorJs.js"
+        ],
+        "append": [
+            "src/amd/append.js"
+        ]
+    },
+
+    "compile-standalone": {
+        "target": "dist/metaphorjs.namespace.min.js",
+        "compile": "standalone"
+    }
+}

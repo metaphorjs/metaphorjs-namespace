@@ -1,0 +1,1 @@
+module.exports = MetaphorJs.ns;

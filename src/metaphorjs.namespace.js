@@ -67,6 +67,10 @@
             current = current[name];
         }
 
+        if (current) {
+            cache[ns] = current;
+        }
+
         return current;
     };
 
@@ -109,7 +113,7 @@
         return c;
     };
 
-    register("MetaphorJs.ns", {
+    MetaphorJs.ns = {
         register:   register,
         exists:     exists,
         get:        get,
@@ -122,14 +126,7 @@
         remove:     function(ns) {
             delete cache[ns];
         }
-    });
+    };
 
-    MetaphorJs.r = register;
-    MetaphorJs.g = get;
-    MetaphorJs.add = add;
-
-    if (typeof module != "undefined") {
-        module.exports = MetaphorJs.ns;
-    }
 
 }());
