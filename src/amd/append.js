@@ -1,1 +1,1 @@
-module.exports = MetaphorJs.ns;
+module.exports = Namespace;

@@ -2,22 +2,19 @@
     "standalone": {
         "wrap": true,
         "auto": true,
+        "global": true,
         "target": "dist/metaphorjs.namespace.js",
         "files": [
-            "../metaphorjs/src/MetaphorJs.js",
             "src/metaphorjs.namespace.js"
         ]
     },
 
     "module": {
-        "wrap": true,
+        "wrap": false,
         "auto": true,
         "target": "dist/metaphorjs.namespace.amd.js",
         "files": [
             "src/metaphorjs.namespace.js"
-        ],
-        "prepend": [
-            "../metaphorjs/src/amd/MetaphorJs.js"
         ],
         "append": [
             "src/amd/append.js"

@@ -1,17 +1,50 @@
-(function(){
-"use strict"
+
 var MetaphorJs = {
     lib: {}
-};(function(){
+};
 
-    "use strict";
 
-    /**
-     * @namespace MetaphorJs
-     */
 
-    var root        = typeof window != "undefined" ? window : global,
-        cache       = {};
+var strUndef = "undefined";
+
+
+var isUndefined = function(any) {
+    return typeof any == strUndef;
+};
+
+var isObject = function(value) {
+    return value != null && typeof value === 'object';
+};
+
+
+
+
+/**
+ * @param {Object} root optional; usually window or global
+ * @param {String} rootName optional. If you want custom object to be root and
+ * this object itself if the first level of namespace:<br>
+ * <pre><code class="language-javascript">
+ * var ns = MetaphorJs.lib.Namespace(window);
+ * ns.register("My.Test", something); // -> window.My.Test
+ * var privateNs = {};
+ * var ns = new MetaphorJs.lib.Namespace(privateNs, "privateNs");
+ * ns.register("privateNs.Test", something); // -> privateNs.Test
+ * </code></pre>
+ * @constructor
+ */
+var Namespace   = function(root, rootName) {
+
+    var cache   = {},
+        self    = this;
+
+    if (!root) {
+        if (!isUndefined(global)) {
+            root    = global;
+        }
+        else {
+            root    = window;
+        }
+    }
 
     var parseNs     = function(ns) {
 
@@ -24,21 +57,38 @@ var MetaphorJs = {
             current = root;
 
         if (cache[parent]) {
-            return [cache[parent], last];
+            return [cache[parent], last, ns];
         }
 
-        for (i = 0; i < len; i++) {
+        if (len > 0) {
+            for (i = 0; i < len; i++) {
 
-            name    = tmp[i];
+                name    = tmp[i];
 
-            if (!current[name]) {
-                current[name]   = {};
+                if (rootName && i == 0) {
+                    if (name == rootName) {
+                        current = root;
+                        continue;
+                    }
+                    else {
+                        ns = rootName + "." + ns;
+                    }
+                }
+
+                if (isUndefined(current[name])) {
+                    current[name]   = {};
+                }
+
+                current = current[name];
             }
-
-            current = current[name];
+        }
+        else {
+            if (rootName) {
+                ns = rootName + "." + ns;
+            }
         }
 
-        return [current, last];
+        return [current, last, ns];
     };
 
     /**
@@ -50,8 +100,16 @@ var MetaphorJs = {
      */
     var get       = function(ns, cacheOnly) {
 
-        if (cache[ns] || cacheOnly) {
+        if (!isUndefined(cache[ns])) {
             return cache[ns];
+        }
+
+        if (rootName && !isUndefined(cache[rootName + "." + ns])) {
+            return cache[rootName + "." + ns];
+        }
+
+        if (cacheOnly) {
+            return undefined;
         }
 
         var tmp     = ns.split("."),
@@ -64,8 +122,15 @@ var MetaphorJs = {
 
             name    = tmp[i];
 
-            if (!current[name]) {
-                return null;
+            if (rootName && i == 0) {
+                if (name == rootName) {
+                    current = root;
+                    continue;
+                }
+            }
+
+            if (isUndefined(current[name])) {
+                return undefined;
             }
 
             current = current[name];
@@ -82,18 +147,22 @@ var MetaphorJs = {
      * Register class constructor
      * @function MetaphorJs.ns.register
      * @param {string} ns
-     * @param {*} fn
+     * @param {*} value
      */
-    var register    = function(ns, fn) {
+    var register    = function(ns, value) {
 
         var parse   = parseNs(ns),
             parent  = parse[0],
             name    = parse[1];
 
-        parent[name]    = fn;
-        cache[ns]       = fn;
+        if (isObject(parent) &&
+            isUndefined(parent[name])) {
 
-        return fn;
+            parent[name]        = value;
+            cache[parse[2]]     = value;
+        }
+
+        return value;
     };
 
     /**
@@ -103,35 +172,45 @@ var MetaphorJs = {
      * @returns boolean
      */
     var exists      = function(ns) {
-        return cache[ns] ? true : false;
+        return !isUndefined(cache[ns]);
     };
 
     /**
      * Add constructor to cache
      * @function MetaphorJs.ns.add
      * @param {string} ns
-     * @param {function} c
+     * @param {*} value
      */
-    var add = function(ns, c) {
-        cache[ns] = c;
-        return c;
-    };
-
-    MetaphorJs.ns = {
-        register:   register,
-        exists:     exists,
-        get:        get,
-        add:        add,
-        /**
-         * Remove constructor from cache
-         * @function MetaphorJs.ns.remove
-         * @param {string} ns
-         */
-        remove:     function(ns) {
-            delete cache[ns];
+    var add = function(ns, value) {
+        if (rootName && ns.indexOf(rootName) !== 0) {
+            ns = rootName + "." + ns;
         }
+        if (isUndefined(cache[ns])) {
+            cache[ns] = value;
+        }
+        return value;
     };
 
+    var remove = function(ns) {
+        delete cache[ns];
+    };
 
-}());module.exports = MetaphorJs.ns;
-}());
+    self.register   = register;
+    self.exists     = exists;
+    self.get        = get;
+    self.add        = add;
+    self.remove     = remove;
+};
+
+Namespace.prototype = {
+    register: null,
+    exists: null,
+    get: null,
+    add: null,
+    remove: null
+};
+
+MetaphorJs.lib.Namespace = Namespace;
+
+
+module.exports = Namespace;
