@@ -1,6 +1,5 @@
 
-var MetaphorJs  = require("../../metaphorjs/src/MetaphorJs.js"),
-    isUndefined = require("../../metaphorjs/src/func/isUndefined.js"),
+var isUndefined = require("../../metaphorjs/src/func/isUndefined.js"),
     isObject    = require("../../metaphorjs/src/func/isObject.js");
 
 "use strict";
@@ -196,6 +195,5 @@ Namespace.prototype = {
     remove: null
 };
 
-MetaphorJs.lib.Namespace = Namespace;
 
 module.exports = Namespace;

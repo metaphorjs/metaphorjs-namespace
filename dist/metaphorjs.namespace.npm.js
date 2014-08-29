@@ -1,11 +1,3 @@
-(function(){
-"use strict";
-
-var MetaphorJs = {
-    lib: {},
-    cmp: {},
-    view: {}
-};
 
 var strUndef = "undefined";
 
@@ -19,7 +11,7 @@ var isObject = function(value) {
 };
 
 
-
+"use strict";
 
 /**
  * @param {Object} root optional; usually window or global
@@ -213,10 +205,4 @@ Namespace.prototype = {
 };
 
 
-
-
-MetaphorJs.lib['Namespace'] = Namespace;
-
-typeof global != "undefined" ? (global['MetaphorJs'] = MetaphorJs) : (window['MetaphorJs'] = MetaphorJs);
-
-}());
+module.exports = Namespace;

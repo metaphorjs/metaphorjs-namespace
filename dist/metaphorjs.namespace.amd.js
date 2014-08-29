@@ -1,9 +1,4 @@
-
-var MetaphorJs = {
-    lib: {}
-};
-
-
+define("metaphorjs-namespace", function() {
 
 var strUndef = "undefined";
 
@@ -210,7 +205,8 @@ Namespace.prototype = {
     remove: null
 };
 
-MetaphorJs.lib.Namespace = Namespace;
 
 
-module.exports = Namespace;
+
+return Namespace;
+});

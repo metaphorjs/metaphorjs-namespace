@@ -1,28 +1,42 @@
 {
     "standalone": {
         "wrap": true,
-        "auto": true,
         "global": true,
         "target": "dist/metaphorjs.namespace.js",
         "files": [
-            "src/metaphorjs.namespace.js"
+            "../metaphorjs/src/MetaphorJs.js",
+            ["src/metaphorjs.namespace.js", {"as": "Namespace"}]
+        ],
+        "expose": [
+            ["MetaphorJs.lib", "Namespace"]
         ]
     },
 
-    "module": {
-        "wrap": false,
-        "auto": true,
+    "npm": {
+        "target": "dist/metaphorjs.namespace.npm.js",
+        "files": [
+            ["src/metaphorjs.namespace.js", {"keepExports": true}]
+        ]
+    },
+
+    "amd": {
         "target": "dist/metaphorjs.namespace.amd.js",
         "files": [
             "src/metaphorjs.namespace.js"
         ],
-        "append": [
-            "src/amd/append.js"
-        ]
+        "define": {
+            "name": "metaphorjs-namespace",
+            "return": "Namespace"
+        }
     },
 
     "compile-standalone": {
         "target": "dist/metaphorjs.namespace.min.js",
         "compile": "standalone"
+    },
+
+    "compile-amd": {
+        "target": "dist/metaphorjs.namespace.amd.min.js",
+        "compile": "amd"
     }
 }
