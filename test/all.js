@@ -1,5 +1,5 @@
 
-var Namespace   = require("../dist/metaphorjs.namespace.amd.js"),
+var Namespace   = require("../src/metaphorjs.namespace.js"),
     assert      = require("assert");
 
 describe("Local ns", function(){

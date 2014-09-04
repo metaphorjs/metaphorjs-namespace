@@ -1,21 +1,76 @@
 (function(){
 "use strict";
 
-var MetaphorJs = {
+ {
     lib: {},
     cmp: {},
     view: {}
 };
 
+var undf = undefined;
 var strUndef = "undefined";
+var toString = Object.prototype.toString;
 
 
-var isUndefined = function(any) {
-    return typeof any == strUndef;
-};
+
+var varType = function(){
+
+    var types = {
+        '[object String]': 0,
+        '[object Number]': 1,
+        '[object Boolean]': 2,
+        '[object Object]': 3,
+        '[object Function]': 4,
+        '[object Array]': 5,
+        '[object RegExp]': 9,
+        '[object Date]': 10
+    };
+
+
+    /**
+        'string': 0,
+        'number': 1,
+        'boolean': 2,
+        'object': 3,
+        'function': 4,
+        'array': 5,
+        'null': 6,
+        'undefined': 7,
+        'NaN': 8,
+        'regexp': 9,
+        'date': 10
+    */
+
+    return function(val) {
+
+        if (!val) {
+            if (val === null) {
+                return 6;
+            }
+            if (val === undf) {
+                return 7;
+            }
+        }
+
+        var num = types[toString.call(val)];
+
+        if (num === undf) {
+            return -1;
+        }
+
+        if (num == 1 && isNaN(val)) {
+            num = 8;
+        }
+
+        return num;
+    };
+
+}();
+
 
 var isObject = function(value) {
-    return value != null && typeof value === 'object';
+    var vt = varType(value);
+    return value !== null && typeof value == "object" && (vt > 2 || vt == -1);
 };
 
 
@@ -40,7 +95,7 @@ var Namespace   = function(root, rootName) {
         self    = this;
 
     if (!root) {
-        if (!isUndefined(global)) {
+        if (typeof global != strUndef) {
             root    = global;
         }
         else {
@@ -57,6 +112,7 @@ var Namespace   = function(root, rootName) {
             len     = tmp.length,
             name,
             current = root;
+
 
         if (cache[parent]) {
             return [cache[parent], last, ns];
@@ -77,7 +133,7 @@ var Namespace   = function(root, rootName) {
                     }
                 }
 
-                if (isUndefined(current[name])) {
+                if (current[name] === undf) {
                     current[name]   = {};
                 }
 
@@ -102,16 +158,16 @@ var Namespace   = function(root, rootName) {
      */
     var get       = function(ns, cacheOnly) {
 
-        if (!isUndefined(cache[ns])) {
+        if (cache[ns] !== undf) {
             return cache[ns];
         }
 
-        if (rootName && !isUndefined(cache[rootName + "." + ns])) {
+        if (rootName && cache[rootName + "." + ns] !== undf) {
             return cache[rootName + "." + ns];
         }
 
         if (cacheOnly) {
-            return undefined;
+            return undf;
         }
 
         var tmp     = ns.split("."),
@@ -131,8 +187,8 @@ var Namespace   = function(root, rootName) {
                 }
             }
 
-            if (isUndefined(current[name])) {
-                return undefined;
+            if (current[name] === undf) {
+                return undf;
             }
 
             current = current[name];
@@ -157,8 +213,7 @@ var Namespace   = function(root, rootName) {
             parent  = parse[0],
             name    = parse[1];
 
-        if (isObject(parent) &&
-            isUndefined(parent[name])) {
+        if (isObject(parent) && parent[name] === undf) {
 
             parent[name]        = value;
             cache[parse[2]]     = value;
@@ -174,7 +229,7 @@ var Namespace   = function(root, rootName) {
      * @returns boolean
      */
     var exists      = function(ns) {
-        return !isUndefined(cache[ns]);
+        return cache[ns] !== undf;
     };
 
     /**
@@ -187,7 +242,7 @@ var Namespace   = function(root, rootName) {
         if (rootName && ns.indexOf(rootName) !== 0) {
             ns = rootName + "." + ns;
         }
-        if (isUndefined(cache[ns])) {
+        if (cache[ns] === undf) {
             cache[ns] = value;
         }
         return value;
