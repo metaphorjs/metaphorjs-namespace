@@ -1,6 +1,6 @@
 {
     "name": "metaphorjs-namespace",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "",
     "main": "dist/metaphorjs.namespace.npm.js",
     "scripts": {

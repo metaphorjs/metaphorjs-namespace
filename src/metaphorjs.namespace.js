@@ -32,6 +32,13 @@ var Namespace   = function(root, rootName) {
         }
     }
 
+    var normalize   = function(ns) {
+        if (ns && rootName && ns.indexOf(rootName) !== 0) {
+            return rootName + "." + ns;
+        }
+        return ns;
+    };
+
     var parseNs     = function(ns) {
 
         var tmp     = ns.split("."),
@@ -186,6 +193,7 @@ var Namespace   = function(root, rootName) {
     self.get        = get;
     self.add        = add;
     self.remove     = remove;
+    self.normalize  = normalize;
 };
 
 Namespace.prototype = {
@@ -193,7 +201,8 @@ Namespace.prototype = {
     exists: null,
     get: null,
     add: null,
-    remove: null
+    remove: null,
+    normalize: null
 };
 
 

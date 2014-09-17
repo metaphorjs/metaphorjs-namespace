@@ -52,7 +52,7 @@ var varType = function(){
         }
 
         if (num == 1 && isNaN(val)) {
-            num = 8;
+            return 8;
         }
 
         return num;
@@ -62,8 +62,11 @@ var varType = function(){
 
 
 var isObject = function(value) {
+    if (value === null || typeof value != "object") {
+        return false;
+    }
     var vt = varType(value);
-    return value !== null && typeof value == "object" && (vt > 2 || vt == -1);
+    return vt > 2 || vt == -1;
 };
 
 
@@ -95,6 +98,13 @@ var Namespace   = function(root, rootName) {
             root    = window;
         }
     }
+
+    var normalize   = function(ns) {
+        if (ns && rootName && ns.indexOf(rootName) !== 0) {
+            return rootName + "." + ns;
+        }
+        return ns;
+    };
 
     var parseNs     = function(ns) {
 
@@ -250,6 +260,7 @@ var Namespace   = function(root, rootName) {
     self.get        = get;
     self.add        = add;
     self.remove     = remove;
+    self.normalize  = normalize;
 };
 
 Namespace.prototype = {
@@ -257,7 +268,8 @@ Namespace.prototype = {
     exists: null,
     get: null,
     add: null,
-    remove: null
+    remove: null,
+    normalize: null
 };
 
 
