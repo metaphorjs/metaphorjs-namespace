@@ -196,14 +196,12 @@ var Namespace   = function(root, rootName) {
     self.normalize  = normalize;
 };
 
-Namespace.prototype = {
-    register: null,
-    exists: null,
-    get: null,
-    add: null,
-    remove: null,
-    normalize: null
-};
+Namespace.prototype.register = null;
+Namespace.prototype.exists = null;
+Namespace.prototype.get = null;
+Namespace.prototype.add = null;
+Namespace.prototype.remove = null;
+Namespace.prototype.normalize = null;
 
 
 module.exports = Namespace;

@@ -34,7 +34,7 @@ var varType = function(){
         'date': 10
     */
 
-    return function(val) {
+    return function varType(val) {
 
         if (!val) {
             if (val === null) {
@@ -61,7 +61,7 @@ var varType = function(){
 }();
 
 
-var isObject = function(value) {
+function isObject(value) {
     if (value === null || typeof value != "object") {
         return false;
     }
@@ -263,14 +263,12 @@ var Namespace   = function(root, rootName) {
     self.normalize  = normalize;
 };
 
-Namespace.prototype = {
-    register: null,
-    exists: null,
-    get: null,
-    add: null,
-    remove: null,
-    normalize: null
-};
+Namespace.prototype.register = null;
+Namespace.prototype.exists = null;
+Namespace.prototype.get = null;
+Namespace.prototype.add = null;
+Namespace.prototype.remove = null;
+Namespace.prototype.normalize = null;
 
 
 
