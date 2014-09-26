@@ -21,10 +21,7 @@
                 ]
             ],
             "expose": [
-                [
-                    "MetaphorJs.lib",
-                    "Namespace"
-                ]
+                "Namespace"
             ]
         },
         "npm": {
