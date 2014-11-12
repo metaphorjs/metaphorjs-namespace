@@ -1,11 +1,33 @@
 {
     "version": "1.0.4",
+    "description": "MetaphorJs namespace system",
+
+
     "test": {
         "cmd": "mocha"
     },
     "push": [
         "github"
     ],
+
+
+    "docs": {
+        "": {
+            "out": "docs",
+            "renderer": "default",
+            "hooks": "hooks",
+            "src": [
+                "../metaphorjs/src/lib/Cache.js",
+                "src/**"
+            ],
+            "includeExternal": false,
+            "data": {
+                "title": "MetaphorJs.Namespace",
+                "version": "v@{version}"
+            }
+        }
+    },
+
     "build": {
         "standalone": {
             "wrap": true,

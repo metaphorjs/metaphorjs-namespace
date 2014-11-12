@@ -13,7 +13,7 @@
         "namespace"
     ],
     "license": "MIT",
-    "homepage": "https://github.com/kuindji/metaphorjs-namespace",
+    "homepage": "https://github.com/metaphorjs/metaphorjs-namespace",
     "ignore": [
         "node_modules",
         "bower_components",

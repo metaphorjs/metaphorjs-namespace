@@ -1,0 +1,1378 @@
+{
+  "type": "root",
+  "name": null,
+  "fullName": null,
+  "file": null,
+  "originalFile": null,
+  "fileType": "*",
+  "template": "*.item.root",
+  "level": 0,
+  "flags": {},
+  "plainFlags": {},
+  "booleanFlags": [],
+  "children": [
+    {
+      "type": "class",
+      "name": "Class",
+      "groupName": "Classes",
+      "items": [
+        {
+          "type": "class",
+          "name": "Cache",
+          "fullName": "Cache",
+          "file": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+          "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+          "fileType": "js",
+          "template": "js.item.class",
+          "level": 1,
+          "flags": {},
+          "plainFlags": {},
+          "booleanFlags": [],
+          "children": [
+            {
+              "type": "method",
+              "name": "Method",
+              "groupName": "Methods",
+              "items": [
+                {
+                  "type": "method",
+                  "name": "Cache",
+                  "fullName": "Cache.Cache",
+                  "file": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                  "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                  "fileType": "js",
+                  "template": "js.item.method",
+                  "level": 2,
+                  "flags": {},
+                  "plainFlags": {},
+                  "booleanFlags": [
+                    "constructor"
+                  ],
+                  "children": [
+                    {
+                      "type": "param",
+                      "items": [
+                        {
+                          "type": "param",
+                          "name": "cacheRewritable",
+                          "fullName": "Cache.Cache/cacheRewritable",
+                          "file": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                          "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                          "fileType": "js",
+                          "template": "js.item.param",
+                          "level": 3,
+                          "flags": {
+                            "type": [
+                              {
+                                "contentType": "string",
+                                "content": "boolean",
+                                "template": "js.flag.type"
+                              }
+                            ]
+                          },
+                          "plainFlags": {
+                            "type": [
+                              "boolean"
+                            ]
+                          },
+                          "booleanFlags": [],
+                          "children": [],
+                          "childTypes": [],
+                          "line": 14
+                        }
+                      ]
+                    }
+                  ],
+                  "childTypes": [
+                    "param"
+                  ],
+                  "line": 14
+                },
+                {
+                  "type": "method",
+                  "name": "addFinder",
+                  "fullName": "Cache.addFinder",
+                  "file": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                  "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                  "fileType": "js",
+                  "template": "js.item.method",
+                  "level": 2,
+                  "flags": {},
+                  "plainFlags": {},
+                  "booleanFlags": [],
+                  "children": [
+                    {
+                      "type": "param",
+                      "items": [
+                        {
+                          "type": "param",
+                          "name": "fn",
+                          "fullName": "Cache.addFinder/fn",
+                          "file": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                          "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                          "fileType": "js",
+                          "template": "js.item.param",
+                          "level": 3,
+                          "flags": {
+                            "type": [
+                              {
+                                "contentType": "string",
+                                "content": "function",
+                                "template": "js.flag.type"
+                              }
+                            ]
+                          },
+                          "plainFlags": {
+                            "type": [
+                              "function"
+                            ]
+                          },
+                          "booleanFlags": [],
+                          "children": [],
+                          "childTypes": [],
+                          "line": 31
+                        },
+                        {
+                          "type": "param",
+                          "name": "context",
+                          "fullName": "Cache.addFinder/context",
+                          "file": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                          "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                          "fileType": "js",
+                          "template": "js.item.param",
+                          "level": 3,
+                          "flags": {
+                            "type": [
+                              {
+                                "contentType": "string",
+                                "content": "object",
+                                "template": "js.flag.type"
+                              }
+                            ]
+                          },
+                          "plainFlags": {
+                            "type": [
+                              "object"
+                            ]
+                          },
+                          "booleanFlags": [],
+                          "children": [],
+                          "childTypes": [],
+                          "line": 31
+                        },
+                        {
+                          "type": "param",
+                          "name": "prepend",
+                          "fullName": "Cache.addFinder/prepend",
+                          "file": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                          "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                          "fileType": "js",
+                          "template": "js.item.param",
+                          "level": 3,
+                          "flags": {
+                            "type": [
+                              {
+                                "contentType": "string",
+                                "content": "boolean",
+                                "template": "js.flag.type"
+                              }
+                            ]
+                          },
+                          "plainFlags": {
+                            "type": [
+                              "boolean"
+                            ]
+                          },
+                          "booleanFlags": [],
+                          "children": [],
+                          "childTypes": [],
+                          "line": 31
+                        }
+                      ]
+                    }
+                  ],
+                  "childTypes": [
+                    "param"
+                  ],
+                  "line": 31
+                },
+                {
+                  "type": "method",
+                  "name": "add",
+                  "fullName": "Cache.add",
+                  "file": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                  "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                  "fileType": "js",
+                  "template": "js.item.method",
+                  "level": 2,
+                  "flags": {
+                    "returnDescription": [
+                      {
+                        "contentType": "string",
+                        "content": "value",
+                        "template": "js.flag.returnDescription"
+                      }
+                    ],
+                    "returns": [
+                      {
+                        "contentType": "string",
+                        "content": "*",
+                        "template": "js.flag.returns"
+                      }
+                    ]
+                  },
+                  "plainFlags": {
+                    "returnDescription": [
+                      "value"
+                    ],
+                    "returns": [
+                      "*"
+                    ]
+                  },
+                  "booleanFlags": [],
+                  "children": [
+                    {
+                      "type": "param",
+                      "items": [
+                        {
+                          "type": "param",
+                          "name": "name",
+                          "fullName": "Cache.add/name",
+                          "file": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                          "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                          "fileType": "js",
+                          "template": "js.item.param",
+                          "level": 3,
+                          "flags": {
+                            "type": [
+                              {
+                                "contentType": "string",
+                                "content": "string",
+                                "template": "js.flag.type"
+                              }
+                            ]
+                          },
+                          "plainFlags": {
+                            "type": [
+                              "string"
+                            ]
+                          },
+                          "booleanFlags": [],
+                          "children": [],
+                          "childTypes": [],
+                          "line": 42
+                        },
+                        {
+                          "type": "param",
+                          "name": "value",
+                          "fullName": "Cache.add/value",
+                          "file": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                          "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                          "fileType": "js",
+                          "template": "js.item.param",
+                          "level": 3,
+                          "flags": {
+                            "type": [
+                              {
+                                "contentType": "string",
+                                "content": "*",
+                                "template": "js.flag.type"
+                              }
+                            ]
+                          },
+                          "plainFlags": {
+                            "type": [
+                              "*"
+                            ]
+                          },
+                          "booleanFlags": [],
+                          "children": [],
+                          "childTypes": [],
+                          "line": 42
+                        },
+                        {
+                          "type": "param",
+                          "name": "rewritable",
+                          "fullName": "Cache.add/rewritable",
+                          "file": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                          "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                          "fileType": "js",
+                          "template": "js.item.param",
+                          "level": 3,
+                          "flags": {
+                            "type": [
+                              {
+                                "contentType": "string",
+                                "content": "boolean",
+                                "template": "js.flag.type"
+                              }
+                            ]
+                          },
+                          "plainFlags": {
+                            "type": [
+                              "boolean"
+                            ]
+                          },
+                          "booleanFlags": [],
+                          "children": [],
+                          "childTypes": [],
+                          "line": 42
+                        }
+                      ]
+                    }
+                  ],
+                  "childTypes": [
+                    "param"
+                  ],
+                  "line": 42
+                },
+                {
+                  "type": "method",
+                  "name": "get",
+                  "fullName": "Cache.get",
+                  "file": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                  "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                  "fileType": "js",
+                  "template": "js.item.method",
+                  "level": 2,
+                  "flags": {
+                    "returns": [
+                      {
+                        "contentType": "string",
+                        "content": "*",
+                        "template": "js.flag.returns"
+                      }
+                    ]
+                  },
+                  "plainFlags": {
+                    "returns": [
+                      "*"
+                    ]
+                  },
+                  "booleanFlags": [],
+                  "children": [
+                    {
+                      "type": "param",
+                      "items": [
+                        {
+                          "type": "param",
+                          "name": "name",
+                          "fullName": "Cache.get/name",
+                          "file": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                          "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                          "fileType": "js",
+                          "template": "js.item.param",
+                          "level": 3,
+                          "flags": {
+                            "type": [
+                              {
+                                "contentType": "string",
+                                "content": "string",
+                                "template": "js.flag.type"
+                              }
+                            ]
+                          },
+                          "plainFlags": {
+                            "type": [
+                              "string"
+                            ]
+                          },
+                          "booleanFlags": [],
+                          "children": [],
+                          "childTypes": [],
+                          "line": 61
+                        }
+                      ]
+                    }
+                  ],
+                  "childTypes": [
+                    "param"
+                  ],
+                  "line": 61
+                },
+                {
+                  "type": "method",
+                  "name": "remove",
+                  "fullName": "Cache.remove",
+                  "file": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                  "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                  "fileType": "js",
+                  "template": "js.item.method",
+                  "level": 2,
+                  "flags": {
+                    "returns": [
+                      {
+                        "contentType": "string",
+                        "content": "*",
+                        "template": "js.flag.returns"
+                      }
+                    ]
+                  },
+                  "plainFlags": {
+                    "returns": [
+                      "*"
+                    ]
+                  },
+                  "booleanFlags": [],
+                  "children": [
+                    {
+                      "type": "param",
+                      "items": [
+                        {
+                          "type": "param",
+                          "name": "name",
+                          "fullName": "Cache.remove/name",
+                          "file": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                          "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                          "fileType": "js",
+                          "template": "js.item.param",
+                          "level": 3,
+                          "flags": {
+                            "type": [
+                              {
+                                "contentType": "string",
+                                "content": "string",
+                                "template": "js.flag.type"
+                              }
+                            ]
+                          },
+                          "plainFlags": {
+                            "type": [
+                              "string"
+                            ]
+                          },
+                          "booleanFlags": [],
+                          "children": [],
+                          "childTypes": [],
+                          "line": 90
+                        }
+                      ]
+                    }
+                  ],
+                  "childTypes": [
+                    "param"
+                  ],
+                  "line": 90
+                },
+                {
+                  "type": "method",
+                  "name": "exists",
+                  "fullName": "Cache.exists",
+                  "file": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                  "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                  "fileType": "js",
+                  "template": "js.item.method",
+                  "level": 2,
+                  "flags": {
+                    "returns": [
+                      {
+                        "contentType": "string",
+                        "content": "boolean",
+                        "template": "js.flag.returns"
+                      }
+                    ]
+                  },
+                  "plainFlags": {
+                    "returns": [
+                      "boolean"
+                    ]
+                  },
+                  "booleanFlags": [],
+                  "children": [
+                    {
+                      "type": "param",
+                      "items": [
+                        {
+                          "type": "param",
+                          "name": "name",
+                          "fullName": "Cache.exists/name",
+                          "file": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                          "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                          "fileType": "js",
+                          "template": "js.item.param",
+                          "level": 3,
+                          "flags": {
+                            "type": [
+                              {
+                                "contentType": "string",
+                                "content": "string",
+                                "template": "js.flag.type"
+                              }
+                            ]
+                          },
+                          "plainFlags": {
+                            "type": [
+                              "string"
+                            ]
+                          },
+                          "booleanFlags": [],
+                          "children": [],
+                          "childTypes": [],
+                          "line": 103
+                        }
+                      ]
+                    }
+                  ],
+                  "childTypes": [
+                    "param"
+                  ],
+                  "line": 103
+                },
+                {
+                  "type": "method",
+                  "name": "eachEntry",
+                  "fullName": "Cache.eachEntry",
+                  "file": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                  "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                  "fileType": "js",
+                  "template": "js.item.method",
+                  "level": 2,
+                  "flags": {},
+                  "plainFlags": {},
+                  "booleanFlags": [],
+                  "children": [
+                    {
+                      "type": "param",
+                      "items": [
+                        {
+                          "type": "param",
+                          "name": "fn",
+                          "fullName": "Cache.eachEntry/fn",
+                          "file": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                          "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                          "fileType": "js",
+                          "template": "js.item.param",
+                          "level": 3,
+                          "flags": {
+                            "type": [
+                              {
+                                "contentType": "string",
+                                "content": "function",
+                                "template": "js.flag.type"
+                              }
+                            ]
+                          },
+                          "plainFlags": {
+                            "type": [
+                              "function"
+                            ]
+                          },
+                          "booleanFlags": [],
+                          "children": [],
+                          "childTypes": [],
+                          "line": 111
+                        },
+                        {
+                          "type": "param",
+                          "name": "context",
+                          "fullName": "Cache.eachEntry/context",
+                          "file": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                          "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                          "fileType": "js",
+                          "template": "js.item.param",
+                          "level": 3,
+                          "flags": {
+                            "type": [
+                              {
+                                "contentType": "string",
+                                "content": "object",
+                                "template": "js.flag.type"
+                              }
+                            ]
+                          },
+                          "plainFlags": {
+                            "type": [
+                              "object"
+                            ]
+                          },
+                          "booleanFlags": [],
+                          "children": [],
+                          "childTypes": [],
+                          "line": 111
+                        }
+                      ]
+                    }
+                  ],
+                  "childTypes": [
+                    "param"
+                  ],
+                  "line": 111
+                },
+                {
+                  "type": "method",
+                  "name": "destroy",
+                  "fullName": "Cache.destroy",
+                  "file": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                  "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                  "fileType": "js",
+                  "template": "js.item.method",
+                  "level": 2,
+                  "flags": {},
+                  "plainFlags": {},
+                  "booleanFlags": [],
+                  "children": [],
+                  "childTypes": [],
+                  "line": 121
+                },
+                {
+                  "type": "method",
+                  "name": "global",
+                  "fullName": "Cache.global",
+                  "file": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                  "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs/src/lib/Cache.js",
+                  "fileType": "js",
+                  "template": "js.item.method",
+                  "level": 2,
+                  "flags": {
+                    "returns": [
+                      {
+                        "contentType": "typeRef",
+                        "content": "Cache",
+                        "template": "js.flag.returns",
+                        "ref": "Cache"
+                      }
+                    ]
+                  },
+                  "plainFlags": {
+                    "returns": [
+                      "Cache"
+                    ]
+                  },
+                  "booleanFlags": [
+                    "static"
+                  ],
+                  "children": [],
+                  "childTypes": [],
+                  "line": 146
+                }
+              ]
+            }
+          ],
+          "childTypes": [
+            "method"
+          ],
+          "line": 14
+        },
+        {
+          "type": "class",
+          "name": "Namespace",
+          "fullName": "Namespace",
+          "file": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+          "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+          "fileType": "js",
+          "template": "js.item.class",
+          "level": 1,
+          "flags": {},
+          "plainFlags": {},
+          "booleanFlags": [],
+          "children": [
+            {
+              "type": "method",
+              "name": "Method",
+              "groupName": "Methods",
+              "items": [
+                {
+                  "type": "method",
+                  "name": "Namespace",
+                  "fullName": "Namespace.Namespace",
+                  "file": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                  "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                  "fileType": "js",
+                  "template": "js.item.method",
+                  "level": 2,
+                  "flags": {},
+                  "plainFlags": {},
+                  "booleanFlags": [
+                    "constructor"
+                  ],
+                  "children": [
+                    {
+                      "type": "param",
+                      "items": [
+                        {
+                          "type": "param",
+                          "name": "root",
+                          "fullName": "Namespace.Namespace/root",
+                          "file": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                          "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                          "fileType": "js",
+                          "template": "js.item.param",
+                          "level": 3,
+                          "flags": {
+                            "type": [
+                              {
+                                "contentType": "string",
+                                "content": "object",
+                                "template": "js.flag.type"
+                              }
+                            ]
+                          },
+                          "plainFlags": {
+                            "type": [
+                              "object"
+                            ]
+                          },
+                          "booleanFlags": [],
+                          "children": [],
+                          "childTypes": [],
+                          "line": 22,
+                          "description": [
+                            {
+                              "contentType": "string",
+                              "content": "optional; usually window or global",
+                              "template": "js.flag.description"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "param",
+                          "name": "rootName",
+                          "fullName": "Namespace.Namespace/rootName",
+                          "file": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                          "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                          "fileType": "js",
+                          "template": "js.item.param",
+                          "level": 3,
+                          "flags": {
+                            "type": [
+                              {
+                                "contentType": "string",
+                                "content": "string",
+                                "template": "js.flag.type"
+                              }
+                            ]
+                          },
+                          "plainFlags": {
+                            "type": [
+                              "string"
+                            ]
+                          },
+                          "booleanFlags": [],
+                          "children": [],
+                          "childTypes": [],
+                          "line": 22,
+                          "description": [
+                            {
+                              "contentType": "string",
+                              "content": "optional. If you want custom object to be root and\nthis object itself if the first level of namespace:",
+                              "template": "js.flag.description"
+                            },
+                            {
+                              "contentType": "code",
+                              "content": "var ns = MetaphorJs.lib.Namespace(window);\nns.register(\"My.Test\", something); // -> window.My.Test\nvar privateNs = {};\nns = new MetaphorJs.lib.Namespace(privateNs, \"privateNs\");\nns.register(\"privateNs.Test\", something); // -> privateNs.Test",
+                              "template": "js.flag.description",
+                              "fromFile": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/examples/main.js",
+                              "fileType": "js"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "param",
+                          "name": "cache",
+                          "fullName": "Namespace.Namespace/cache",
+                          "file": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                          "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                          "fileType": "js",
+                          "template": "js.item.param",
+                          "level": 3,
+                          "flags": {
+                            "type": [
+                              {
+                                "contentType": "typeRef",
+                                "content": "Cache",
+                                "template": "js.flag.type",
+                                "ref": "Cache"
+                              }
+                            ]
+                          },
+                          "plainFlags": {
+                            "type": [
+                              "Cache"
+                            ]
+                          },
+                          "booleanFlags": [],
+                          "children": [],
+                          "childTypes": [],
+                          "line": 22,
+                          "description": [
+                            {
+                              "contentType": "string",
+                              "content": "optional",
+                              "template": "js.flag.description"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "childTypes": [
+                    "param"
+                  ],
+                  "line": 22
+                },
+                {
+                  "type": "method",
+                  "name": "get",
+                  "fullName": "Namespace.get",
+                  "file": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                  "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                  "fileType": "js",
+                  "template": "js.item.method",
+                  "level": 2,
+                  "flags": {
+                    "returns": [
+                      {
+                        "contentType": "string",
+                        "content": "*",
+                        "template": "js.flag.returns"
+                      }
+                    ]
+                  },
+                  "plainFlags": {
+                    "returns": [
+                      "*"
+                    ]
+                  },
+                  "booleanFlags": [],
+                  "children": [
+                    {
+                      "type": "param",
+                      "items": [
+                        {
+                          "type": "param",
+                          "name": "ns",
+                          "fullName": "Namespace.get/ns",
+                          "file": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                          "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                          "fileType": "js",
+                          "template": "js.item.param",
+                          "level": 3,
+                          "flags": {
+                            "type": [
+                              {
+                                "contentType": "string",
+                                "content": "string",
+                                "template": "js.flag.type"
+                              }
+                            ]
+                          },
+                          "plainFlags": {
+                            "type": [
+                              "string"
+                            ]
+                          },
+                          "booleanFlags": [],
+                          "children": [],
+                          "childTypes": [],
+                          "line": 89
+                        },
+                        {
+                          "type": "param",
+                          "name": "cacheOnly",
+                          "fullName": "Namespace.get/cacheOnly",
+                          "file": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                          "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                          "fileType": "js",
+                          "template": "js.item.param",
+                          "level": 3,
+                          "flags": {
+                            "type": [
+                              {
+                                "contentType": "string",
+                                "content": "boolean",
+                                "template": "js.flag.type"
+                              }
+                            ]
+                          },
+                          "plainFlags": {
+                            "type": [
+                              "boolean"
+                            ]
+                          },
+                          "booleanFlags": [],
+                          "children": [],
+                          "childTypes": [],
+                          "line": 89
+                        }
+                      ]
+                    }
+                  ],
+                  "childTypes": [
+                    "param"
+                  ],
+                  "line": 89,
+                  "description": [
+                    {
+                      "contentType": "string",
+                      "content": "Get namespace/cache object",
+                      "template": "js.flag.description"
+                    }
+                  ]
+                },
+                {
+                  "type": "method",
+                  "name": "register",
+                  "fullName": "Namespace.register",
+                  "file": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                  "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                  "fileType": "js",
+                  "template": "js.item.method",
+                  "level": 2,
+                  "flags": {},
+                  "plainFlags": {},
+                  "booleanFlags": [],
+                  "children": [
+                    {
+                      "type": "param",
+                      "items": [
+                        {
+                          "type": "param",
+                          "name": "ns",
+                          "fullName": "Namespace.register/ns",
+                          "file": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                          "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                          "fileType": "js",
+                          "template": "js.item.param",
+                          "level": 3,
+                          "flags": {
+                            "type": [
+                              {
+                                "contentType": "string",
+                                "content": "string",
+                                "template": "js.flag.type"
+                              }
+                            ]
+                          },
+                          "plainFlags": {
+                            "type": [
+                              "string"
+                            ]
+                          },
+                          "booleanFlags": [],
+                          "children": [],
+                          "childTypes": [],
+                          "line": 136
+                        },
+                        {
+                          "type": "param",
+                          "name": "value",
+                          "fullName": "Namespace.register/value",
+                          "file": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                          "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                          "fileType": "js",
+                          "template": "js.item.param",
+                          "level": 3,
+                          "flags": {
+                            "type": [
+                              {
+                                "contentType": "string",
+                                "content": "*",
+                                "template": "js.flag.type"
+                              }
+                            ]
+                          },
+                          "plainFlags": {
+                            "type": [
+                              "*"
+                            ]
+                          },
+                          "booleanFlags": [],
+                          "children": [],
+                          "childTypes": [],
+                          "line": 136
+                        }
+                      ]
+                    }
+                  ],
+                  "childTypes": [
+                    "param"
+                  ],
+                  "line": 136,
+                  "description": [
+                    {
+                      "contentType": "string",
+                      "content": "Register item",
+                      "template": "js.flag.description"
+                    }
+                  ]
+                },
+                {
+                  "type": "method",
+                  "name": "exists",
+                  "fullName": "Namespace.exists",
+                  "file": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                  "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                  "fileType": "js",
+                  "template": "js.item.method",
+                  "level": 2,
+                  "flags": {
+                    "returns": [
+                      {
+                        "contentType": "string",
+                        "content": "boolean",
+                        "template": "js.flag.returns"
+                      }
+                    ]
+                  },
+                  "plainFlags": {
+                    "returns": [
+                      "boolean"
+                    ]
+                  },
+                  "booleanFlags": [],
+                  "children": [
+                    {
+                      "type": "param",
+                      "items": [
+                        {
+                          "type": "param",
+                          "name": "ns",
+                          "fullName": "Namespace.exists/ns",
+                          "file": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                          "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                          "fileType": "js",
+                          "template": "js.item.param",
+                          "level": 3,
+                          "flags": {
+                            "type": [
+                              {
+                                "contentType": "string",
+                                "content": "string",
+                                "template": "js.flag.type"
+                              }
+                            ]
+                          },
+                          "plainFlags": {
+                            "type": [
+                              "string"
+                            ]
+                          },
+                          "booleanFlags": [],
+                          "children": [],
+                          "childTypes": [],
+                          "line": 157
+                        }
+                      ]
+                    }
+                  ],
+                  "childTypes": [
+                    "param"
+                  ],
+                  "line": 157,
+                  "description": [
+                    {
+                      "contentType": "string",
+                      "content": "Item exists",
+                      "template": "js.flag.description"
+                    }
+                  ]
+                },
+                {
+                  "type": "method",
+                  "name": "add",
+                  "fullName": "Namespace.add",
+                  "file": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                  "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                  "fileType": "js",
+                  "template": "js.item.method",
+                  "level": 2,
+                  "flags": {},
+                  "plainFlags": {},
+                  "booleanFlags": [],
+                  "children": [
+                    {
+                      "type": "param",
+                      "items": [
+                        {
+                          "type": "param",
+                          "name": "ns",
+                          "fullName": "Namespace.add/ns",
+                          "file": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                          "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                          "fileType": "js",
+                          "template": "js.item.param",
+                          "level": 3,
+                          "flags": {
+                            "type": [
+                              {
+                                "contentType": "string",
+                                "content": "string",
+                                "template": "js.flag.type"
+                              }
+                            ]
+                          },
+                          "plainFlags": {
+                            "type": [
+                              "string"
+                            ]
+                          },
+                          "booleanFlags": [],
+                          "children": [],
+                          "childTypes": [],
+                          "line": 167
+                        },
+                        {
+                          "type": "param",
+                          "name": "value",
+                          "fullName": "Namespace.add/value",
+                          "file": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                          "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                          "fileType": "js",
+                          "template": "js.item.param",
+                          "level": 3,
+                          "flags": {
+                            "type": [
+                              {
+                                "contentType": "string",
+                                "content": "*",
+                                "template": "js.flag.type"
+                              }
+                            ]
+                          },
+                          "plainFlags": {
+                            "type": [
+                              "*"
+                            ]
+                          },
+                          "booleanFlags": [],
+                          "children": [],
+                          "childTypes": [],
+                          "line": 167
+                        }
+                      ]
+                    }
+                  ],
+                  "childTypes": [
+                    "param"
+                  ],
+                  "line": 167,
+                  "description": [
+                    {
+                      "contentType": "string",
+                      "content": "Add item only to the cache",
+                      "template": "js.flag.description"
+                    }
+                  ]
+                },
+                {
+                  "type": "method",
+                  "name": "remove",
+                  "fullName": "Namespace.remove",
+                  "file": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                  "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                  "fileType": "js",
+                  "template": "js.item.method",
+                  "level": 2,
+                  "flags": {},
+                  "plainFlags": {},
+                  "booleanFlags": [],
+                  "children": [
+                    {
+                      "type": "param",
+                      "items": [
+                        {
+                          "type": "param",
+                          "name": "ns",
+                          "fullName": "Namespace.remove/ns",
+                          "file": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                          "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                          "fileType": "js",
+                          "template": "js.item.param",
+                          "level": 3,
+                          "flags": {
+                            "type": [
+                              {
+                                "contentType": "string",
+                                "content": "string",
+                                "template": "js.flag.type"
+                              }
+                            ]
+                          },
+                          "plainFlags": {
+                            "type": [
+                              "string"
+                            ]
+                          },
+                          "booleanFlags": [],
+                          "children": [],
+                          "childTypes": [],
+                          "line": 179
+                        }
+                      ]
+                    }
+                  ],
+                  "childTypes": [
+                    "param"
+                  ],
+                  "line": 179,
+                  "description": [
+                    {
+                      "contentType": "string",
+                      "content": "Remove item from cache",
+                      "template": "js.flag.description"
+                    }
+                  ]
+                },
+                {
+                  "type": "method",
+                  "name": "makeAlias",
+                  "fullName": "Namespace.makeAlias",
+                  "file": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                  "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                  "fileType": "js",
+                  "template": "js.item.method",
+                  "level": 2,
+                  "flags": {},
+                  "plainFlags": {},
+                  "booleanFlags": [],
+                  "children": [
+                    {
+                      "type": "param",
+                      "items": [
+                        {
+                          "type": "param",
+                          "name": "from",
+                          "fullName": "Namespace.makeAlias/from",
+                          "file": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                          "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                          "fileType": "js",
+                          "template": "js.item.param",
+                          "level": 3,
+                          "flags": {
+                            "type": [
+                              {
+                                "contentType": "string",
+                                "content": "string",
+                                "template": "js.flag.type"
+                              }
+                            ]
+                          },
+                          "plainFlags": {
+                            "type": [
+                              "string"
+                            ]
+                          },
+                          "booleanFlags": [],
+                          "children": [],
+                          "childTypes": [],
+                          "line": 190
+                        },
+                        {
+                          "type": "param",
+                          "name": "to",
+                          "fullName": "Namespace.makeAlias/to",
+                          "file": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                          "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                          "fileType": "js",
+                          "template": "js.item.param",
+                          "level": 3,
+                          "flags": {
+                            "type": [
+                              {
+                                "contentType": "string",
+                                "content": "string",
+                                "template": "js.flag.type"
+                              }
+                            ]
+                          },
+                          "plainFlags": {
+                            "type": [
+                              "string"
+                            ]
+                          },
+                          "booleanFlags": [],
+                          "children": [],
+                          "childTypes": [],
+                          "line": 190
+                        }
+                      ]
+                    }
+                  ],
+                  "childTypes": [
+                    "param"
+                  ],
+                  "line": 190,
+                  "description": [
+                    {
+                      "contentType": "string",
+                      "content": "Make alias in the cache",
+                      "template": "js.flag.description"
+                    }
+                  ]
+                },
+                {
+                  "type": "method",
+                  "name": "destroy",
+                  "fullName": "Namespace.destroy",
+                  "file": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                  "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                  "fileType": "js",
+                  "template": "js.item.method",
+                  "level": 2,
+                  "flags": {},
+                  "plainFlags": {},
+                  "booleanFlags": [],
+                  "children": [],
+                  "childTypes": [],
+                  "line": 206,
+                  "description": [
+                    {
+                      "contentType": "string",
+                      "content": "Destroy namespace and all classes in it",
+                      "template": "js.flag.description"
+                    }
+                  ]
+                },
+                {
+                  "type": "method",
+                  "name": "global",
+                  "fullName": "Namespace.global",
+                  "file": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                  "originalFile": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src/metaphorjs.namespace.js",
+                  "fileType": "js",
+                  "template": "js.item.method",
+                  "level": 2,
+                  "flags": {
+                    "returns": [
+                      {
+                        "contentType": "typeRef",
+                        "content": "Namespace",
+                        "template": "js.flag.returns",
+                        "ref": "Namespace"
+                      }
+                    ]
+                  },
+                  "plainFlags": {
+                    "returns": [
+                      "Namespace"
+                    ]
+                  },
+                  "booleanFlags": [
+                    "static"
+                  ],
+                  "children": [],
+                  "childTypes": [],
+                  "line": 256,
+                  "description": [
+                    {
+                      "contentType": "string",
+                      "content": "Get global namespace",
+                      "template": "js.flag.description"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "childTypes": [
+            "method"
+          ],
+          "line": 12
+        }
+      ]
+    }
+  ],
+  "childTypes": [
+    "class"
+  ]
+}

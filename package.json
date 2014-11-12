@@ -1,14 +1,14 @@
 {
     "name": "metaphorjs-namespace",
     "version": "1.0.4",
-    "description": "",
+    "description": "MetaphorJs namespace system",
     "main": "dist/metaphorjs.namespace.npm.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
         "type": "git",
-        "url": "https://kuindji@bitbucket.org/kuindji/metaphorjs-namespace.git"
+        "url": "https://kuindji@bitbucket.org/metaphorjs/metaphorjs-namespace.git"
     },
     "author": "",
     "license": "MIT"

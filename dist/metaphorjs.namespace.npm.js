@@ -236,6 +236,7 @@ var Cache = function(){
 
 /**
  * @class Namespace
+ * @code ../examples/main.js
  */
 module.exports = function(){
 
@@ -243,7 +244,7 @@ module.exports = function(){
     /**
      * @param {Object} root optional; usually window or global
      * @param {String} rootName optional. If you want custom object to be root and
-     * this object itself if the first level of namespace: {@code ../examples/main.js}
+     * this object itself is the first level of namespace
      * @param {Cache} cache optional
      * @constructor
      */
@@ -429,6 +430,7 @@ module.exports = function(){
 
         /**
          * Destroy namespace and all classes in it
+         * @method
          */
         var destroy     = function() {
 
@@ -478,7 +480,7 @@ module.exports = function(){
      * Get global namespace
      * @method
      * @static
-     * @returns {*}
+     * @returns {Namespace}
      */
     Namespace.global = function() {
         if (!globalNs) {

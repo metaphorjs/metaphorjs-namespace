@@ -1,0 +1,1625 @@
+<!DOCTYPE html><html><head lang="en">
+    <meta charset="UTF-8">
+    <title>MetaphorJs.Namespace</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/prism/themes/prism.css">
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/prism/prism.js"></script>
+</head>
+<body>
+
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">MetaphorJs.Namespace</a>
+        </div>
+
+
+        <div class="navbar-collapse collapse">
+
+            
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Classes
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="#">Namespace</a>
+                            </li><li>
+                                <a href="#">Cache</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            
+
+            
+        </div><!--/.nav-collapse -->
+
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div class="container">
+        <h1>MetaphorJs.Namespace</h1>
+        <p></p>
+        <p>v1.0.4</p>
+    </div>
+</div>
+
+<div class="container source-container">
+    <div class="row item-group level-0">
+        
+        <div class="col-md-12 item-group-items item-group-type-class level-0">
+            <div class="item-header" id="Namespace">
+    
+        
+    
+    <h3>
+        
+        <span class="item-name">Namespace</span>
+        
+    </h3>
+</div>
+
+
+    <div class="item-description">
+        
+        
+            <pre><code class="language-javascript">// global namespace
+var ns = MetaphorJs.Namespace();
+ns.register("My.Test", something); // -&gt; window.My.Test or global.My.Test
+ns.add("My.CacheOnly.Key", 123);
+
+// private namespace
+var privateNs = {};
+var pns = new MetaphorJs.Namespace(privateNs, "privateNs");
+pns.register("privateNs.Test", something); // -&gt; privateNs.Test
+
+// access namespace
+ns.get("My.Test"); // window.My.Test
+pns.get("Test"); // privateNs.Test
+pns.get("privateNs.Test"); // privateNs.Test
+
+window.Something = {hello: "world"};
+ns.get("Something.hello"); // "world"
+ns.get("Something.hello", true); // get only from cache; returns null;
+ns.get("My.CacheOnly.Key", true); // get only from cache; returns 123;
+ns.get("My.CacheOnly.Key"); // 123
+
+// in conjunction with class system
+// see metaphorjs-class repository
+
+var cs = new MetaphorJs.Class(ns); // global class system
+var privateCs = new MetaphorJs.Class(pns); // hidden class system
+
+cs.define({
+    $class: "My.TestClass"
+});
+// window.My.TestClass or global.My.TestClass
+
+privateCs.define({
+    $class: "My.TestClass"
+});
+// privateNs.My.TestClass
+
+// in the default namespace you can use both
+// "MetaphorJs.Any.Thing" and "Any.Thing" - it is the same.
+// Your class will be available as MetaphorJs.Any.Thing</code></pre>
+        
+    </div>
+
+
+
+
+    <div class="col-md-2 nopadding item-nav-container">
+        <ul class="item-nav">
+    <li class="item-nav-group-name">Methods</li>
+    <li class="item-nav-property item-nav-property-method">
+
+        <a href="#Namespace.Namespace">
+            <span class="item-nav-item-name">Namespace</span>
+            
+                
+                    <span class="item-nav-item-arguments">(root, rootName, cache)</span>
+                
+                
+            
+        </a>
+    </li><li class="item-nav-property item-nav-property-method">
+
+        <a href="#Namespace.get">
+            <span class="item-nav-item-name">get</span>
+            
+                
+                    <span class="item-nav-item-arguments">(ns, cacheOnly)</span>
+                
+                
+            
+        </a>
+    </li><li class="item-nav-property item-nav-property-method">
+
+        <a href="#Namespace.register">
+            <span class="item-nav-item-name">register</span>
+            
+                
+                    <span class="item-nav-item-arguments">(ns, value)</span>
+                
+                
+            
+        </a>
+    </li><li class="item-nav-property item-nav-property-method">
+
+        <a href="#Namespace.exists">
+            <span class="item-nav-item-name">exists</span>
+            
+                
+                    <span class="item-nav-item-arguments">(ns)</span>
+                
+                
+            
+        </a>
+    </li><li class="item-nav-property item-nav-property-method">
+
+        <a href="#Namespace.add">
+            <span class="item-nav-item-name">add</span>
+            
+                
+                    <span class="item-nav-item-arguments">(ns, value)</span>
+                
+                
+            
+        </a>
+    </li><li class="item-nav-property item-nav-property-method">
+
+        <a href="#Namespace.remove">
+            <span class="item-nav-item-name">remove</span>
+            
+                
+                    <span class="item-nav-item-arguments">(ns)</span>
+                
+                
+            
+        </a>
+    </li><li class="item-nav-property item-nav-property-method">
+
+        <a href="#Namespace.makeAlias">
+            <span class="item-nav-item-name">makeAlias</span>
+            
+                
+                    <span class="item-nav-item-arguments">(from, to)</span>
+                
+                
+            
+        </a>
+    </li><li class="item-nav-property item-nav-property-method">
+
+        <a href="#Namespace.destroy">
+            <span class="item-nav-item-name">destroy</span>
+            
+                
+                
+                    <span class="item-nav-item-arguments">()</span>
+                
+            
+        </a>
+    </li><li class="item-nav-property item-nav-property-method">
+
+        <a href="#Namespace.global">
+            <span class="item-nav-item-name">global</span>
+            
+                
+                
+                    <span class="item-nav-item-arguments">()</span>
+                
+            
+        </a>
+    </li>
+</ul>
+    </div>
+    <div class="col-md-10 nopadding item-properties-container">
+        
+    <div class="item-property-group-name">Methods</div>
+    <ul class="item-properties item-properties-method level-0">
+        <li class="item-property item-property-method">
+            <div class="item-header" id="Namespace.Namespace">
+    
+        <span class="label label-warning item-label">constructor</span>
+    
+    <h4>
+        
+        <span class="item-name">Namespace</span>
+        
+            
+                <span class="item-name-arguments">(root, rootName, cache)</span>
+            
+            
+            
+            
+        
+    </h4>
+</div>
+
+
+
+
+
+
+
+    
+    
+    <ul class="item-properties item-properties-param level-1">
+        <li class="item-property item-property-param">
+            <div class="item-header" id="Namespace.Namespace/root">
+    
+        
+    
+    <h5>
+        
+            <span class="item-type">object</span>
+        
+        <span class="item-name">root</span>
+        
+    </h5>
+</div>
+
+
+    <div class="item-description">
+        
+            <p>optional; usually window or global</p>
+
+        
+        
+    </div>
+
+
+
+
+
+
+    
+
+        </li><li class="item-property item-property-param">
+            <div class="item-header" id="Namespace.Namespace/rootName">
+    
+        
+    
+    <h5>
+        
+            <span class="item-type">string</span>
+        
+        <span class="item-name">rootName</span>
+        
+    </h5>
+</div>
+
+
+    <div class="item-description">
+        
+            <p>optional. If you want custom object to be root and
+this object itself is the first level of namespace</p>
+
+        
+        
+    </div>
+
+
+
+
+
+
+    
+
+        </li><li class="item-property item-property-param">
+            <div class="item-header" id="Namespace.Namespace/cache">
+    
+        
+    
+    <h5>
+        
+            <span class="item-type"><a href="#Cache">Cache</a></span>
+        
+        <span class="item-name">cache</span>
+        
+    </h5>
+</div>
+
+
+    <div class="item-description">
+        
+            <p>optional</p>
+
+        
+        
+    </div>
+
+
+
+
+
+
+    
+
+        </li>
+    </ul>
+
+
+        </li><li class="item-property item-property-method">
+            <div class="item-header" id="Namespace.get">
+    
+        
+    
+    <h4>
+        
+        <span class="item-name">get</span>
+        
+            
+                <span class="item-name-arguments">(ns, cacheOnly)</span>
+            
+            
+            
+                <span class="item-name-returns">&nbsp;-&gt;
+                    *
+            </span>
+            
+        
+    </h4>
+</div>
+
+
+    <div class="item-description">
+        
+            <p>Get namespace/cache object</p>
+
+        
+        
+    </div>
+
+
+
+
+
+
+    
+    
+    <ul class="item-properties item-properties-param level-1">
+        <li class="item-property item-property-param">
+            <div class="item-header" id="Namespace.get/ns">
+    
+        
+    
+    <h5>
+        
+            <span class="item-type">string</span>
+        
+        <span class="item-name">ns</span>
+        
+    </h5>
+</div>
+
+
+
+
+
+
+
+    
+
+        </li><li class="item-property item-property-param">
+            <div class="item-header" id="Namespace.get/cacheOnly">
+    
+        
+    
+    <h5>
+        
+            <span class="item-type">boolean</span>
+        
+        <span class="item-name">cacheOnly</span>
+        
+    </h5>
+</div>
+
+
+
+
+
+
+
+    
+
+        </li>
+    </ul>
+
+
+        </li><li class="item-property item-property-method">
+            <div class="item-header" id="Namespace.register">
+    
+        
+    
+    <h4>
+        
+        <span class="item-name">register</span>
+        
+            
+                <span class="item-name-arguments">(ns, value)</span>
+            
+            
+            
+            
+        
+    </h4>
+</div>
+
+
+    <div class="item-description">
+        
+            <p>Register item</p>
+
+        
+        
+    </div>
+
+
+
+
+
+
+    
+    
+    <ul class="item-properties item-properties-param level-1">
+        <li class="item-property item-property-param">
+            <div class="item-header" id="Namespace.register/ns">
+    
+        
+    
+    <h5>
+        
+            <span class="item-type">string</span>
+        
+        <span class="item-name">ns</span>
+        
+    </h5>
+</div>
+
+
+
+
+
+
+
+    
+
+        </li><li class="item-property item-property-param">
+            <div class="item-header" id="Namespace.register/value">
+    
+        
+    
+    <h5>
+        
+            <span class="item-type">*</span>
+        
+        <span class="item-name">value</span>
+        
+    </h5>
+</div>
+
+
+
+
+
+
+
+    
+
+        </li>
+    </ul>
+
+
+        </li><li class="item-property item-property-method">
+            <div class="item-header" id="Namespace.exists">
+    
+        
+    
+    <h4>
+        
+        <span class="item-name">exists</span>
+        
+            
+                <span class="item-name-arguments">(ns)</span>
+            
+            
+            
+                <span class="item-name-returns">&nbsp;-&gt;
+                    boolean
+            </span>
+            
+        
+    </h4>
+</div>
+
+
+    <div class="item-description">
+        
+            <p>Item exists</p>
+
+        
+        
+    </div>
+
+
+
+
+
+
+    
+    
+    <ul class="item-properties item-properties-param level-1">
+        <li class="item-property item-property-param">
+            <div class="item-header" id="Namespace.exists/ns">
+    
+        
+    
+    <h5>
+        
+            <span class="item-type">string</span>
+        
+        <span class="item-name">ns</span>
+        
+    </h5>
+</div>
+
+
+
+
+
+
+
+    
+
+        </li>
+    </ul>
+
+
+        </li><li class="item-property item-property-method">
+            <div class="item-header" id="Namespace.add">
+    
+        
+    
+    <h4>
+        
+        <span class="item-name">add</span>
+        
+            
+                <span class="item-name-arguments">(ns, value)</span>
+            
+            
+            
+            
+        
+    </h4>
+</div>
+
+
+    <div class="item-description">
+        
+            <p>Add item only to the cache</p>
+
+        
+        
+    </div>
+
+
+
+
+
+
+    
+    
+    <ul class="item-properties item-properties-param level-1">
+        <li class="item-property item-property-param">
+            <div class="item-header" id="Namespace.add/ns">
+    
+        
+    
+    <h5>
+        
+            <span class="item-type">string</span>
+        
+        <span class="item-name">ns</span>
+        
+    </h5>
+</div>
+
+
+
+
+
+
+
+    
+
+        </li><li class="item-property item-property-param">
+            <div class="item-header" id="Namespace.add/value">
+    
+        
+    
+    <h5>
+        
+            <span class="item-type">*</span>
+        
+        <span class="item-name">value</span>
+        
+    </h5>
+</div>
+
+
+
+
+
+
+
+    
+
+        </li>
+    </ul>
+
+
+        </li><li class="item-property item-property-method">
+            <div class="item-header" id="Namespace.remove">
+    
+        
+    
+    <h4>
+        
+        <span class="item-name">remove</span>
+        
+            
+                <span class="item-name-arguments">(ns)</span>
+            
+            
+            
+            
+        
+    </h4>
+</div>
+
+
+    <div class="item-description">
+        
+            <p>Remove item from cache</p>
+
+        
+        
+    </div>
+
+
+
+
+
+
+    
+    
+    <ul class="item-properties item-properties-param level-1">
+        <li class="item-property item-property-param">
+            <div class="item-header" id="Namespace.remove/ns">
+    
+        
+    
+    <h5>
+        
+            <span class="item-type">string</span>
+        
+        <span class="item-name">ns</span>
+        
+    </h5>
+</div>
+
+
+
+
+
+
+
+    
+
+        </li>
+    </ul>
+
+
+        </li><li class="item-property item-property-method">
+            <div class="item-header" id="Namespace.makeAlias">
+    
+        
+    
+    <h4>
+        
+        <span class="item-name">makeAlias</span>
+        
+            
+                <span class="item-name-arguments">(from, to)</span>
+            
+            
+            
+            
+        
+    </h4>
+</div>
+
+
+    <div class="item-description">
+        
+            <p>Make alias in the cache</p>
+
+        
+        
+    </div>
+
+
+
+
+
+
+    
+    
+    <ul class="item-properties item-properties-param level-1">
+        <li class="item-property item-property-param">
+            <div class="item-header" id="Namespace.makeAlias/from">
+    
+        
+    
+    <h5>
+        
+            <span class="item-type">string</span>
+        
+        <span class="item-name">from</span>
+        
+    </h5>
+</div>
+
+
+
+
+
+
+
+    
+
+        </li><li class="item-property item-property-param">
+            <div class="item-header" id="Namespace.makeAlias/to">
+    
+        
+    
+    <h5>
+        
+            <span class="item-type">string</span>
+        
+        <span class="item-name">to</span>
+        
+    </h5>
+</div>
+
+
+
+
+
+
+
+    
+
+        </li>
+    </ul>
+
+
+        </li><li class="item-property item-property-method">
+            <div class="item-header" id="Namespace.destroy">
+    
+        
+    
+    <h4>
+        
+        <span class="item-name">destroy</span>
+        
+            
+            
+                <span class="item-name-arguments">()</span>
+            
+            
+            
+        
+    </h4>
+</div>
+
+
+    <div class="item-description">
+        
+            <p>Destroy namespace and all classes in it</p>
+
+        
+        
+    </div>
+
+
+
+
+
+
+    
+
+        </li><li class="item-property item-property-method">
+            <div class="item-header" id="Namespace.global">
+    
+        <span class="label label-warning item-label">static</span>
+    
+    <h4>
+        
+        <span class="item-name">global</span>
+        
+            
+            
+                <span class="item-name-arguments">()</span>
+            
+            
+                <span class="item-name-returns">&nbsp;-&gt;
+                    <a href="#Namespace">Namespace</a>
+            </span>
+            
+        
+    </h4>
+</div>
+
+
+    <div class="item-description">
+        
+            <p>Get global namespace</p>
+
+        
+        
+    </div>
+
+
+
+
+
+
+    
+
+        </li>
+    </ul>
+
+    </div>
+
+
+
+        </div><div class="col-md-12 item-group-items item-group-type-class level-0">
+            <div class="item-header" id="Cache">
+    
+        
+    
+    <h3>
+        
+        <span class="item-name">Cache</span>
+        
+    </h3>
+</div>
+<ul class="item-flags">
+    <li>
+        <code>@access</code>
+        
+            <span>private</span>
+        
+    </li>
+</ul>
+
+
+
+
+    <div class="col-md-2 nopadding item-nav-container">
+        <ul class="item-nav">
+    <li class="item-nav-group-name">Methods</li>
+    <li class="item-nav-property item-nav-property-method">
+
+        <a href="#Cache.Cache">
+            <span class="item-nav-item-name">Cache</span>
+            
+                
+                    <span class="item-nav-item-arguments">(cacheRewritable)</span>
+                
+                
+            
+        </a>
+    </li><li class="item-nav-property item-nav-property-method">
+
+        <a href="#Cache.addFinder">
+            <span class="item-nav-item-name">addFinder</span>
+            
+                
+                    <span class="item-nav-item-arguments">(fn, context, prepend)</span>
+                
+                
+            
+        </a>
+    </li><li class="item-nav-property item-nav-property-method">
+
+        <a href="#Cache.add">
+            <span class="item-nav-item-name">add</span>
+            
+                
+                    <span class="item-nav-item-arguments">(name, value, rewritable)</span>
+                
+                
+            
+        </a>
+    </li><li class="item-nav-property item-nav-property-method">
+
+        <a href="#Cache.get">
+            <span class="item-nav-item-name">get</span>
+            
+                
+                    <span class="item-nav-item-arguments">(name)</span>
+                
+                
+            
+        </a>
+    </li><li class="item-nav-property item-nav-property-method">
+
+        <a href="#Cache.remove">
+            <span class="item-nav-item-name">remove</span>
+            
+                
+                    <span class="item-nav-item-arguments">(name)</span>
+                
+                
+            
+        </a>
+    </li><li class="item-nav-property item-nav-property-method">
+
+        <a href="#Cache.exists">
+            <span class="item-nav-item-name">exists</span>
+            
+                
+                    <span class="item-nav-item-arguments">(name)</span>
+                
+                
+            
+        </a>
+    </li><li class="item-nav-property item-nav-property-method">
+
+        <a href="#Cache.eachEntry">
+            <span class="item-nav-item-name">eachEntry</span>
+            
+                
+                    <span class="item-nav-item-arguments">(fn, context)</span>
+                
+                
+            
+        </a>
+    </li><li class="item-nav-property item-nav-property-method">
+
+        <a href="#Cache.destroy">
+            <span class="item-nav-item-name">destroy</span>
+            
+                
+                
+                    <span class="item-nav-item-arguments">()</span>
+                
+            
+        </a>
+    </li><li class="item-nav-property item-nav-property-method">
+
+        <a href="#Cache.global">
+            <span class="item-nav-item-name">global</span>
+            
+                
+                
+                    <span class="item-nav-item-arguments">()</span>
+                
+            
+        </a>
+    </li>
+</ul>
+    </div>
+    <div class="col-md-10 nopadding item-properties-container">
+        
+    <div class="item-property-group-name">Methods</div>
+    <ul class="item-properties item-properties-method level-0">
+        <li class="item-property item-property-method">
+            <div class="item-header" id="Cache.Cache">
+    
+        <span class="label label-warning item-label">constructor</span>
+    
+    <h4>
+        
+        <span class="item-name">Cache</span>
+        
+            
+                <span class="item-name-arguments">(cacheRewritable)</span>
+            
+            
+            
+            
+        
+    </h4>
+</div>
+
+
+
+
+
+
+
+    
+    
+    <ul class="item-properties item-properties-param level-1">
+        <li class="item-property item-property-param">
+            <div class="item-header" id="Cache.Cache/cacheRewritable">
+    
+        
+    
+    <h5>
+        
+            <span class="item-type">boolean</span>
+        
+        <span class="item-name">cacheRewritable</span>
+        
+    </h5>
+</div>
+
+
+
+
+
+
+
+    
+
+        </li>
+    </ul>
+
+
+        </li><li class="item-property item-property-method">
+            <div class="item-header" id="Cache.addFinder">
+    
+        
+    
+    <h4>
+        
+        <span class="item-name">addFinder</span>
+        
+            
+                <span class="item-name-arguments">(fn, context, prepend)</span>
+            
+            
+            
+            
+        
+    </h4>
+</div>
+
+
+
+
+
+
+
+    
+    
+    <ul class="item-properties item-properties-param level-1">
+        <li class="item-property item-property-param">
+            <div class="item-header" id="Cache.addFinder/fn">
+    
+        
+    
+    <h5>
+        
+            <span class="item-type">function</span>
+        
+        <span class="item-name">fn</span>
+        
+            
+            
+                <span class="item-name-arguments">()</span>
+            
+            
+            
+        
+    </h5>
+</div>
+
+
+
+
+
+
+
+    
+
+        </li><li class="item-property item-property-param">
+            <div class="item-header" id="Cache.addFinder/context">
+    
+        
+    
+    <h5>
+        
+            <span class="item-type">object</span>
+        
+        <span class="item-name">context</span>
+        
+    </h5>
+</div>
+
+
+
+
+
+
+
+    
+
+        </li><li class="item-property item-property-param">
+            <div class="item-header" id="Cache.addFinder/prepend">
+    
+        
+    
+    <h5>
+        
+            <span class="item-type">boolean</span>
+        
+        <span class="item-name">prepend</span>
+        
+    </h5>
+</div>
+
+
+
+
+
+
+
+    
+
+        </li>
+    </ul>
+
+
+        </li><li class="item-property item-property-method">
+            <div class="item-header" id="Cache.add">
+    
+        
+    
+    <h4>
+        
+        <span class="item-name">add</span>
+        
+            
+                <span class="item-name-arguments">(name, value, rewritable)</span>
+            
+            
+            
+                <span class="item-name-returns">&nbsp;-&gt;
+                    *
+            </span>
+            
+                <small class="item-name-return-descr">value</small>
+            
+        
+    </h4>
+</div>
+
+
+
+
+
+
+
+    
+    
+    <ul class="item-properties item-properties-param level-1">
+        <li class="item-property item-property-param">
+            <div class="item-header" id="Cache.add/name">
+    
+        
+    
+    <h5>
+        
+            <span class="item-type">string</span>
+        
+        <span class="item-name">name</span>
+        
+    </h5>
+</div>
+
+
+
+
+
+
+
+    
+
+        </li><li class="item-property item-property-param">
+            <div class="item-header" id="Cache.add/value">
+    
+        
+    
+    <h5>
+        
+            <span class="item-type">*</span>
+        
+        <span class="item-name">value</span>
+        
+    </h5>
+</div>
+
+
+
+
+
+
+
+    
+
+        </li><li class="item-property item-property-param">
+            <div class="item-header" id="Cache.add/rewritable">
+    
+        
+    
+    <h5>
+        
+            <span class="item-type">boolean</span>
+        
+        <span class="item-name">rewritable</span>
+        
+    </h5>
+</div>
+
+
+
+
+
+
+
+    
+
+        </li>
+    </ul>
+
+
+        </li><li class="item-property item-property-method">
+            <div class="item-header" id="Cache.get">
+    
+        
+    
+    <h4>
+        
+        <span class="item-name">get</span>
+        
+            
+                <span class="item-name-arguments">(name)</span>
+            
+            
+            
+                <span class="item-name-returns">&nbsp;-&gt;
+                    *
+            </span>
+            
+        
+    </h4>
+</div>
+
+
+
+
+
+
+
+    
+    
+    <ul class="item-properties item-properties-param level-1">
+        <li class="item-property item-property-param">
+            <div class="item-header" id="Cache.get/name">
+    
+        
+    
+    <h5>
+        
+            <span class="item-type">string</span>
+        
+        <span class="item-name">name</span>
+        
+    </h5>
+</div>
+
+
+
+
+
+
+
+    
+
+        </li>
+    </ul>
+
+
+        </li><li class="item-property item-property-method">
+            <div class="item-header" id="Cache.remove">
+    
+        
+    
+    <h4>
+        
+        <span class="item-name">remove</span>
+        
+            
+                <span class="item-name-arguments">(name)</span>
+            
+            
+            
+                <span class="item-name-returns">&nbsp;-&gt;
+                    *
+            </span>
+            
+        
+    </h4>
+</div>
+
+
+
+
+
+
+
+    
+    
+    <ul class="item-properties item-properties-param level-1">
+        <li class="item-property item-property-param">
+            <div class="item-header" id="Cache.remove/name">
+    
+        
+    
+    <h5>
+        
+            <span class="item-type">string</span>
+        
+        <span class="item-name">name</span>
+        
+    </h5>
+</div>
+
+
+
+
+
+
+
+    
+
+        </li>
+    </ul>
+
+
+        </li><li class="item-property item-property-method">
+            <div class="item-header" id="Cache.exists">
+    
+        
+    
+    <h4>
+        
+        <span class="item-name">exists</span>
+        
+            
+                <span class="item-name-arguments">(name)</span>
+            
+            
+            
+                <span class="item-name-returns">&nbsp;-&gt;
+                    boolean
+            </span>
+            
+        
+    </h4>
+</div>
+
+
+
+
+
+
+
+    
+    
+    <ul class="item-properties item-properties-param level-1">
+        <li class="item-property item-property-param">
+            <div class="item-header" id="Cache.exists/name">
+    
+        
+    
+    <h5>
+        
+            <span class="item-type">string</span>
+        
+        <span class="item-name">name</span>
+        
+    </h5>
+</div>
+
+
+
+
+
+
+
+    
+
+        </li>
+    </ul>
+
+
+        </li><li class="item-property item-property-method">
+            <div class="item-header" id="Cache.eachEntry">
+    
+        
+    
+    <h4>
+        
+        <span class="item-name">eachEntry</span>
+        
+            
+                <span class="item-name-arguments">(fn, context)</span>
+            
+            
+            
+            
+        
+    </h4>
+</div>
+
+
+
+
+
+
+
+    
+    
+    <ul class="item-properties item-properties-param level-1">
+        <li class="item-property item-property-param">
+            <div class="item-header" id="Cache.eachEntry/fn">
+    
+        
+    
+    <h5>
+        
+            <span class="item-type">function</span>
+        
+        <span class="item-name">fn</span>
+        
+            
+            
+                <span class="item-name-arguments">()</span>
+            
+            
+            
+        
+    </h5>
+</div>
+
+
+
+
+
+
+
+    
+
+        </li><li class="item-property item-property-param">
+            <div class="item-header" id="Cache.eachEntry/context">
+    
+        
+    
+    <h5>
+        
+            <span class="item-type">object</span>
+        
+        <span class="item-name">context</span>
+        
+    </h5>
+</div>
+
+
+
+
+
+
+
+    
+
+        </li>
+    </ul>
+
+
+        </li><li class="item-property item-property-method">
+            <div class="item-header" id="Cache.destroy">
+    
+        
+    
+    <h4>
+        
+        <span class="item-name">destroy</span>
+        
+            
+            
+                <span class="item-name-arguments">()</span>
+            
+            
+            
+        
+    </h4>
+</div>
+
+
+
+
+
+
+
+    
+
+        </li><li class="item-property item-property-method">
+            <div class="item-header" id="Cache.global">
+    
+        <span class="label label-warning item-label">static</span>
+    
+    <h4>
+        
+        <span class="item-name">global</span>
+        
+            
+            
+                <span class="item-name-arguments">()</span>
+            
+            
+                <span class="item-name-returns">&nbsp;-&gt;
+                    <a href="#Cache">Cache</a>
+            </span>
+            
+        
+    </h4>
+</div>
+
+
+
+
+
+
+
+    
+
+        </li>
+    </ul>
+
+    </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="container"></div>
+</div>
+
+
+</body></html>
