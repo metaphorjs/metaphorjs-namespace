@@ -502,7 +502,8 @@ var Namespace = function(){
 
 }();
 
-MetaphorJs['Namespace'] = Namespace;
-typeof global != "undefined" ? (global['MetaphorJs'] = MetaphorJs) : (window['MetaphorJs'] = MetaphorJs);
+var MetaphorJsExports = {};
+MetaphorJsExports['Namespace'] = Namespace;
+typeof global != "undefined" ? (global['MetaphorJs'] = MetaphorJsExports) : (window['MetaphorJs'] = MetaphorJsExports);
 
 }());

@@ -17,13 +17,13 @@
             "renderer": "default",
             "hooks": "hooks",
             "src": [
-                "../metaphorjs/src/lib/Cache.js",
+                "metaphorjs/src/lib/Cache.js",
                 "src/**"
             ],
             "includeExternal": false,
             "data": {
                 "title": "MetaphorJs.Namespace",
-                "version": "v@{version}"
+                "version": "1.0.4"
             }
         }
     },
@@ -34,9 +34,9 @@
             "global": true,
             "target": "dist/metaphorjs.namespace.js",
             "files": [
-                "../metaphorjs/src/MetaphorJs.js",
+                "metaphorjs/src/MetaphorJs.js",
                 [
-                    "src/metaphorjs.namespace.js",
+                    "src/lib/Namespace.js",
                     {
                         "as": "Namespace"
                     }
@@ -51,7 +51,7 @@
             "compile": false,
             "files": [
                 [
-                    "src/metaphorjs.namespace.js",
+                    "src/lib/Namespace.js",
                     {
                         "keepExports": true
                     }
@@ -61,7 +61,7 @@
         "amd": {
             "target": "dist/metaphorjs.namespace.amd.js",
             "files": [
-                "src/metaphorjs.namespace.js"
+                "src/lib/Namespace.js"
             ],
             "define": {
                 "name": "metaphorjs-namespace",

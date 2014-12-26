@@ -1,8 +1,8 @@
 
-var undf = require("../../metaphorjs/src/var/undf.js"),
-    strUndef = require("../../metaphorjs/src/var/strUndef.js"),
-    isObject    = require("../../metaphorjs/src/func/isObject.js"),
-    Cache = require("../../metaphorjs/src/lib/Cache.js");
+var undf = require("metaphorjs/src/var/undf.js"),
+    strUndef = require("metaphorjs/src/var/strUndef.js"),
+    isObject    = require("metaphorjs/src/func/isObject.js"),
+    Cache = require("metaphorjs/src/lib/Cache.js");
 
 
 
