@@ -27,7 +27,7 @@ module.exports = function(){
             rootL   = rootName ? rootName.length : null;
 
         if (!root) {
-            if (typeof global != strUndef) {
+            if (typeof global !== strUndef) {
                 root    = global;
             }
             else {
@@ -36,7 +36,7 @@ module.exports = function(){
         }
 
         var normalize   = function(ns) {
-            if (ns && rootName && ns.substr(0, rootL) != rootName) {
+            if (ns && rootName && ns.substr(0, rootL) !== rootName) {
                 return rootName + "." + ns;
             }
             return ns;
@@ -64,7 +64,7 @@ module.exports = function(){
 
                     name    = tmp[i];
 
-                    if (rootName && i == 0 && name == rootName) {
+                    if (rootName && i === 0 && name === rootName) {
                         current = root;
                         continue;
                     }
@@ -109,7 +109,7 @@ module.exports = function(){
 
                 name    = tmp[i];
 
-                if (rootName && i == 0 && name == rootName) {
+                if (rootName && i === 0 && name === rootName) {
                     current = root;
                     continue;
                 }
