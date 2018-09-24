@@ -84,20 +84,27 @@
     <div class="item-description">
         
         
-            <pre><code class=" language-javascript">// Public namespace
-var ns = new MetaphorJs.Namespace(window);
+            <pre><code class=" language-javascript">
+// npm and amd 
+var Namespace = require("metaphorjs-namespace");
+
+// Standalone (exposed to window/global):
+// var Namespace = MetaphorJs.Namespace;
+
+// Public namespace
+var ns = new Namespace(window);
 ns.register("My.Test", something); // -&gt; window.My.Test
 ns.add("My.CacheOnly.Key", 123);
 
-// private namespace
+// Private namespace
 var privateNs = {};
-var pns = new MetaphorJs.Namespace(privateNs);
+var pns = new Namespace(privateNs);
 pns.register("My.Test", something); // -&gt; privateNs.My.Test
 
 // Also private namespace.
-// You construct ns without passing root object.
-// You will not have access to the root.
-var pns2 = new MetaphorJs.Namespace();
+// You can construct ns without passing root object.
+// In this case, you will not have access to the root.
+var pns2 = new Namespace();
 
 // access namespace
 ns.get("My.Test"); // window.My.Test
@@ -2405,7 +2412,7 @@ value of this object.</p>
         "description": [
           {
             "contentType": "code",
-            "content": "// Public namespace\nvar ns = new MetaphorJs.Namespace(window);\nns.register(\"My.Test\", something); // -> window.My.Test\nns.add(\"My.CacheOnly.Key\", 123);\n\n// private namespace\nvar privateNs = {};\nvar pns = new MetaphorJs.Namespace(privateNs);\npns.register(\"My.Test\", something); // -> privateNs.My.Test\n\n// Also private namespace.\n// You construct ns without passing root object.\n// You will not have access to the root.\nvar pns2 = new MetaphorJs.Namespace();\n\n// access namespace\nns.get(\"My.Test\"); // window.My.Test\npns.get(\"My.Test\"); // privateNs.My.Test\n\nwindow.Something = {hello: \"world\"};\nns.get(\"Something.hello\"); // \"world\"\nns.get(\"Something.hello\", true); // get only from cache; returns null;\nns.get(\"My.CacheOnly.Key\", true); // get only from cache; returns 123;\nns.get(\"My.CacheOnly.Key\"); // 123\n\n// in conjunction with class system\n// see metaphorjs-class repository\n\nvar cls = classManagerFactory(ns); // global class system\nvar privateCls = classManagerFactory(pns); // hidden class system\n\ncls({\n    $class: \"My.TestClass\"\n});\n// window.My.TestClass\n\nprivateCls({\n    $class: \"My.TestClass\"\n});\n// privateNs.My.TestClass",
+            "content": "\n// npm and amd \nvar Namespace = require(\"metaphorjs-namespace\");\n\n// Standalone (exposed to window/global):\n// var Namespace = MetaphorJs.Namespace;\n\n// Public namespace\nvar ns = new Namespace(window);\nns.register(\"My.Test\", something); // -> window.My.Test\nns.add(\"My.CacheOnly.Key\", 123);\n\n// Private namespace\nvar privateNs = {};\nvar pns = new Namespace(privateNs);\npns.register(\"My.Test\", something); // -> privateNs.My.Test\n\n// Also private namespace.\n// You can construct ns without passing root object.\n// In this case, you will not have access to the root.\nvar pns2 = new Namespace();\n\n// access namespace\nns.get(\"My.Test\"); // window.My.Test\npns.get(\"My.Test\"); // privateNs.My.Test\n\nwindow.Something = {hello: \"world\"};\nns.get(\"Something.hello\"); // \"world\"\nns.get(\"Something.hello\", true); // get only from cache; returns null;\nns.get(\"My.CacheOnly.Key\", true); // get only from cache; returns 123;\nns.get(\"My.CacheOnly.Key\"); // 123\n\n// in conjunction with class system\n// see metaphorjs-class repository\n\nvar cls = classManagerFactory(ns); // global class system\nvar privateCls = classManagerFactory(pns); // hidden class system\n\ncls({\n    $class: \"My.TestClass\"\n});\n// window.My.TestClass\n\nprivateCls({\n    $class: \"My.TestClass\"\n});\n// privateNs.My.TestClass",
             "template": "js.flag.description",
             "fromFile": "/Users/kuindji/projects/metaphorjs/metaphorjs-namespace/src-docs/examples/main.js",
             "fileType": "js",

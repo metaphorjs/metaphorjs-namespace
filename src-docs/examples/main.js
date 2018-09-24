@@ -1,17 +1,24 @@
+
+// npm and amd 
+var Namespace = require("metaphorjs-namespace");
+
+// Standalone (exposed to window/global):
+// var Namespace = MetaphorJs.Namespace;
+
 // Public namespace
-var ns = new MetaphorJs.Namespace(window);
+var ns = new Namespace(window);
 ns.register("My.Test", something); // -> window.My.Test
 ns.add("My.CacheOnly.Key", 123);
 
-// private namespace
+// Private namespace
 var privateNs = {};
-var pns = new MetaphorJs.Namespace(privateNs);
+var pns = new Namespace(privateNs);
 pns.register("My.Test", something); // -> privateNs.My.Test
 
 // Also private namespace.
-// You construct ns without passing root object.
-// You will not have access to the root.
-var pns2 = new MetaphorJs.Namespace();
+// You can construct ns without passing root object.
+// In this case, you will not have access to the root.
+var pns2 = new Namespace();
 
 // access namespace
 ns.get("My.Test"); // window.My.Test
