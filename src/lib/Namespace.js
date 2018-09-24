@@ -173,7 +173,7 @@ module.exports = MetaphorJs.Namespace = function(root) {
 
     /**
      * Destroy namespace and all classes in it
-     * @method
+     * @method $destroy
      */
     var destroy     = function() {
 
