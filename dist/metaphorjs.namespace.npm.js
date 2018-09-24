@@ -429,7 +429,7 @@ var Namespace = MetaphorJs.Namespace = function(root) {
             }
         });
 
-        cache.destroy();
+        cache.$destroy();
         cache = null;
 
         for (k in self) {
@@ -443,7 +443,7 @@ var Namespace = MetaphorJs.Namespace = function(root) {
     self.add        = add;
     self.remove     = remove;
     self.makeAlias  = makeAlias;
-    self.destroy    = destroy;
+    self.$destroy    = destroy;
 };
 
 module.exports = Namespace;
