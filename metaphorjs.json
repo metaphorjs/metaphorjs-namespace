@@ -1,72 +1,73 @@
 {
-    "version": "1.0.4",
+    "version": "2.0.0",
     "description": "MetaphorJs namespace system",
 
-
-    "test": {
-        "cmd": "mocha"
-    },
-    "push": [
-        "github"
-    ],
-
-
     "docs": {
-        "": {
-            "out": "docs",
-            "renderer": "default",
-            "hooks": "hooks",
-            "src": [
-                "metaphorjs/src/lib/Cache.js",
-                "src/**"
-            ],
-            "includeExternal": false,
+        "out": "docs",
+        "renderer": {
+            "type": "default",
             "data": {
                 "title": "MetaphorJs.Namespace",
-                "version": "1.0.4"
+                "version": "2.0.0"
             }
-        }
+        },
+        "hooks": [
+            "src-docs/hooks"
+        ],
+        "src": [
+            "src/lib/Namespace.js"
+        ],
+        "includeExternal": false
     },
 
     "build": {
         "standalone": {
-            "wrap": true,
-            "global": true,
             "target": "dist/metaphorjs.namespace.js",
             "files": [
-                "metaphorjs/src/MetaphorJs.js",
-                [
-                    "src/lib/Namespace.js",
-                    {
-                        "as": "Namespace"
-                    }
-                ]
+                ["src/lib/Namespace.js", {"as": "*"}]
             ],
-            "expose": [
-                "Namespace"
-            ]
+            "options": {
+                "wrap": true,
+                "global": true,
+                "expose": [
+                    "Namespace"
+                ]
+            }  
         },
+
+        "standalone-min": {
+            "extend": "standalone",
+            "target": "dist/metaphorjs.namespace.min.js",
+            "pipe": ["build", "compile", "write"]
+        },
+
         "npm": {
             "target": "dist/metaphorjs.namespace.npm.js",
-            "compile": false,
             "files": [
-                [
-                    "src/lib/Namespace.js",
-                    {
-                        "keepExports": true
-                    }
-                ]
-            ]
+                ["src/lib/Namespace.js", {"as": "*"}]
+            ],
+            "options": {
+                "exports": "Namespace"
+            }
         },
+        
         "amd": {
             "target": "dist/metaphorjs.namespace.amd.js",
             "files": [
-                "src/lib/Namespace.js"
+                ["src/lib/Namespace.js", {"as": "*"}]
             ],
-            "define": {
-                "name": "metaphorjs-namespace",
-                "return": "Namespace"
+            "options": {
+                "amd": {
+                    "name": "metaphorjs-namespace",
+                    "return": "Namespace"
+                }
             }
+        },
+
+        "amd-min": {
+            "extend": "amd",
+            "target": "dist/metaphorjs.namespace.amd.min.js",
+            "pipe": ["build", "compile", "write"]
         }
     }
 }
