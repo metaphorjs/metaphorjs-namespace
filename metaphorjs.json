@@ -7,7 +7,7 @@
         "renderer": {
             "type": "default",
             "data": {
-                "title": "MetaphorJs.Namespace",
+                "title": "MetaphorJs.lib.Namespace",
                 "version": "2.0.0"
             }
         },
@@ -24,14 +24,13 @@
         "standalone": {
             "target": "dist/metaphorjs.namespace.js",
             "files": [
-                ["src/lib/Namespace.js", {"as": "*"}]
+                "src/lib/Namespace.js"
             ],
             "options": {
                 "wrap": true,
-                "global": true,
-                "expose": [
-                    "Namespace"
-                ]
+                "global": {
+                    "expose": "MetaphorJs"
+                }
             }  
         },
 
@@ -44,22 +43,22 @@
         "npm": {
             "target": "dist/metaphorjs.namespace.npm.js",
             "files": [
-                ["src/lib/Namespace.js", {"as": "*"}]
+                "src/lib/Namespace.js"
             ],
             "options": {
-                "exports": "Namespace"
+                "exports": "MetaphorJs.lib.Namespace"
             }
         },
         
         "amd": {
             "target": "dist/metaphorjs.namespace.amd.js",
             "files": [
-                ["src/lib/Namespace.js", {"as": "*"}]
+                "src/lib/Namespace.js"
             ],
             "options": {
                 "amd": {
                     "name": "metaphorjs-namespace",
-                    "return": "Namespace"
+                    "return": "MetaphorJs.lib.Namespace"
                 }
             }
         },

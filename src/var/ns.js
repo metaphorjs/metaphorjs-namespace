@@ -1,6 +1,6 @@
 
 var Namespace   = require('../lib/Namespace.js'),
-    MetaphorJs  = require('metaphorjs/src/MetaphorJs.js');
+    MetaphorJs  = require('metaphorjs-shared/src/MetaphorJs.js');
 
 /**
  * Already constructed private namespace 

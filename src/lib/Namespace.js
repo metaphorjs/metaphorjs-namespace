@@ -1,11 +1,11 @@
 
-var undf = require("metaphorjs/src/var/undf.js"),
-    isObject = require("metaphorjs/src/func/isObject.js"),
-    MetaphorJs = require("metaphorjs/src/MetaphorJs.js"),
-    Cache = require("metaphorjs/src/lib/Cache.js");
+var lib_Cache = require("metaphorjs-shared/src/lib/Cache.js"),
+    undf = require("metaphorjs-shared/src/var/undf.js"),
+    isObject = require("metaphorjs-shared/src/func/isObject.js"),
+    MetaphorJs = require("metaphorjs-shared/src/MetaphorJs.js");
 
 /**
- * @class Namespace
+ * @class MetaphorJs.lib.Namespace
  * @code src-docs/examples/main.js
  */
 
@@ -20,12 +20,12 @@ var undf = require("metaphorjs/src/var/undf.js"),
  *  @optional
  * }
  */
-module.exports = MetaphorJs.Namespace = function(root) {
+module.exports = MetaphorJs.lib.Namespace = function(root) {
 
     root        = root || {};
 
     var self    = this,
-        cache   = new Cache(false);
+        cache   = new lib_Cache(false);
 
     var parseNs     = function(ns) {
 

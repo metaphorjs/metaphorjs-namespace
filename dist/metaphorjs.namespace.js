@@ -2,14 +2,229 @@
 /* BUNDLE START 003 */
 "use strict";
 
+var strUndef = "undefined";
+
 var undf = undefined;
 
+
+var MetaphorJs = {
+    plugin: {},
+    mixin: {},
+    lib: {}
+};
+
+
+
+
+
+var lib_Cache = MetaphorJs.lib.Cache = (function(){
+
+    var globalCache;
+
+    /**
+     * @class MetaphorJs.lib.Cache
+     */
+
+    /**
+     * @method
+     * @constructor
+     * @param {bool} cacheRewritable
+     */
+    var Cache = function(cacheRewritable) {
+
+        var storage = {},
+
+            finders = [];
+
+        if (arguments.length == 0) {
+            cacheRewritable = true;
+        }
+
+        return {
+
+            /**
+             * Add finder function. If cache doesn't have an entry
+             * with given name, it calls finder functions with this
+             * name as a parameter. If one of the functions
+             * returns anything else except undefined, it will
+             * store this value and return every time given name
+             * is requested.
+             * @param {function} fn {
+             *  @param {string} name
+             *  @param {Cache} cache
+             *  @returns {* | undefined}
+             * }
+             * @param {object} context
+             * @param {bool} prepend Put in front of other finders
+             */
+            addFinder: function(fn, context, prepend) {
+                finders[prepend? "unshift" : "push"]({fn: fn, context: context});
+            },
+
+            /**
+             * Add cache entry
+             * @method
+             * @param {string} name
+             * @param {*} value
+             * @param {bool} rewritable
+             * @returns {*} value
+             */
+            add: function(name, value, rewritable) {
+
+                if (storage[name] && storage[name].rewritable === false) {
+                    return storage[name];
+                }
+
+                storage[name] = {
+                    rewritable: typeof rewritable != strUndef ? rewritable : cacheRewritable,
+                    value: value
+                };
+
+                return value;
+            },
+
+            /**
+             * Get cache entry
+             * @method
+             * @param {string} name
+             * @param {*} defaultValue {
+             *  If value is not found, put this default value it its place
+             * }
+             * @returns {* | undefined}
+             */
+            get: function(name, defaultValue) {
+
+                if (!storage[name]) {
+                    if (finders.length) {
+
+                        var i, l, res,
+                            self = this;
+
+                        for (i = 0, l = finders.length; i < l; i++) {
+
+                            res = finders[i].fn.call(finders[i].context, name, self);
+
+                            if (res !== undf) {
+                                return self.add(name, res, true);
+                            }
+                        }
+                    }
+
+                    if (defaultValue !== undf) {
+                        return this.add(name, defaultValue);
+                    }
+
+                    return undf; 
+                }
+
+                return storage[name].value;
+            },
+
+            /**
+             * Remove cache entry
+             * @method
+             * @param {string} name
+             * @returns {*}
+             */
+            remove: function(name) {
+                var rec = storage[name];
+                if (rec && rec.rewritable === true) {
+                    delete storage[name];
+                }
+                return rec ? rec.value : undf;
+            },
+
+            /**
+             * Check if cache entry exists
+             * @method
+             * @param {string} name
+             * @returns {boolean}
+             */
+            exists: function(name) {
+                return !!storage[name];
+            },
+
+            /**
+             * Walk cache entries
+             * @method
+             * @param {function} fn {
+             *  @param {*} value
+             *  @param {string} key
+             * }
+             * @param {object} context
+             */
+            eachEntry: function(fn, context) {
+                var k;
+                for (k in storage) {
+                    fn.call(context, storage[k].value, k);
+                }
+            },
+
+            /**
+             * Clear cache
+             * @method
+             */
+            clear: function() {
+                storage = {};
+            },
+
+            /**
+             * Clear and destroy cache
+             * @method
+             */
+            $destroy: function() {
+
+                var self = this;
+
+                if (self === globalCache) {
+                    globalCache = null;
+                }
+
+                storage = null;
+                cacheRewritable = null;
+
+                self.add = null;
+                self.get = null;
+                self.destroy = null;
+                self.exists = null;
+                self.remove = null;
+            }
+        };
+    };
+
+    /**
+     * Get global cache
+     * @method
+     * @static
+     * @returns {Cache}
+     */
+    Cache.global = function() {
+
+        if (!globalCache) {
+            globalCache = new Cache(true);
+        }
+
+        return globalCache;
+    };
+
+    return Cache;
+    
+}());
+
+
+
+/**
+ * Convert anything to string
+ * @function toString
+ * @param {*} value
+ * @returns {string}
+ */
 var toString = Object.prototype.toString;
 
 
 
 
-var varType = function(){
+var _varType = function(){
 
     var types = {
         '[object String]': 0,
@@ -42,7 +257,7 @@ var varType = function(){
 
 
 
-    return function varType(val) {
+    return function _varType(val) {
 
         if (!val) {
             if (val === null) {
@@ -70,186 +285,24 @@ var varType = function(){
 
 
 
+/**
+ * Check if given value is an object (non-scalar)
+ * @function isObject
+ * @param {*} value 
+ * @returns {boolean}
+ */
 function isObject(value) {
     if (value === null || typeof value != "object") {
         return false;
     }
-    var vt = varType(value);
+    var vt = _varType(value);
     return vt > 2 || vt == -1;
 };
 
 
-var MetaphorJs = {
-    plugin: {},
-    mixin: {}
-};
-
-
-var strUndef = "undefined";
-
-
-
-var Cache = function(){
-
-    var globalCache;
-
-    /**
-     * @class Cache
-     */
-
-    /**
-     * @constructor
-     * @param {bool} cacheRewritable
-     */
-    var Cache = function(cacheRewritable) {
-
-        var storage = {},
-
-            finders = [];
-
-        if (arguments.length == 0) {
-            cacheRewritable = true;
-        }
-
-        return {
-
-            /**
-             * @param {function} fn
-             * @param {object} context
-             * @param {bool} prepend
-             */
-            addFinder: function(fn, context, prepend) {
-                finders[prepend? "unshift" : "push"]({fn: fn, context: context});
-            },
-
-            /**
-             * @method
-             * @param {string} name
-             * @param {*} value
-             * @param {bool} rewritable
-             * @returns {*} value
-             */
-            add: function(name, value, rewritable) {
-
-                if (storage[name] && storage[name].rewritable === false) {
-                    return storage[name];
-                }
-
-                storage[name] = {
-                    rewritable: typeof rewritable != strUndef ? rewritable : cacheRewritable,
-                    value: value
-                };
-
-                return value;
-            },
-
-            /**
-             * @method
-             * @param {string} name
-             * @returns {*}
-             */
-            get: function(name) {
-
-                if (!storage[name]) {
-                    if (finders.length) {
-
-                        var i, l, res,
-                            self = this;
-
-                        for (i = 0, l = finders.length; i < l; i++) {
-
-                            res = finders[i].fn.call(finders[i].context, name, self);
-
-                            if (res !== undf) {
-                                return self.add(name, res, true);
-                            }
-                        }
-                    }
-
-                    return undf;
-                }
-
-                return storage[name].value;
-            },
-
-            /**
-             * @method
-             * @param {string} name
-             * @returns {*}
-             */
-            remove: function(name) {
-                var rec = storage[name];
-                if (rec && rec.rewritable === true) {
-                    delete storage[name];
-                }
-                return rec ? rec.value : undf;
-            },
-
-            /**
-             * @method
-             * @param {string} name
-             * @returns {boolean}
-             */
-            exists: function(name) {
-                return !!storage[name];
-            },
-
-            /**
-             * @param {function} fn
-             * @param {object} context
-             */
-            eachEntry: function(fn, context) {
-                var k;
-                for (k in storage) {
-                    fn.call(context, storage[k].value, k);
-                }
-            },
-
-            /**
-             * @method
-             */
-            destroy: function() {
-
-                var self = this;
-
-                if (self === globalCache) {
-                    globalCache = null;
-                }
-
-                storage = null;
-                cacheRewritable = null;
-
-                self.add = null;
-                self.get = null;
-                self.destroy = null;
-                self.exists = null;
-                self.remove = null;
-            }
-        };
-    };
-
-    /**
-     * @method
-     * @static
-     * @returns {Cache}
-     */
-    Cache.global = function() {
-
-        if (!globalCache) {
-            globalCache = new Cache(true);
-        }
-
-        return globalCache;
-    };
-
-    return Cache;
-
-}();
-
-
 
 /**
- * @class Namespace
+ * @class MetaphorJs.lib.Namespace
  * @code src-docs/examples/main.js
  */
 
@@ -264,12 +317,12 @@ var Cache = function(){
  *  @optional
  * }
  */
-var Namespace = MetaphorJs.Namespace = function(root) {
+MetaphorJs.lib.Namespace = function(root) {
 
     root        = root || {};
 
     var self    = this,
-        cache   = new Cache(false);
+        cache   = new lib_Cache(false);
 
     var parseNs     = function(ns) {
 
@@ -417,7 +470,7 @@ var Namespace = MetaphorJs.Namespace = function(root) {
 
     /**
      * Destroy namespace and all classes in it
-     * @method
+     * @method $destroy
      */
     var destroy     = function() {
 
@@ -447,9 +500,6 @@ var Namespace = MetaphorJs.Namespace = function(root) {
     self.$destroy    = destroy;
 };
 
-var __mjsExport = {};
-__mjsExport['Namespace'] = Namespace;
-
-typeof global != "undefined" ? (global['MetaphorJs'] = __mjsExport) : (window['MetaphorJs'] = __mjsExport);
+typeof global != "undefined" ? (global['MetaphorJs'] = MetaphorJs) : (window['MetaphorJs'] = MetaphorJs);
 
 }());/* BUNDLE END 003 */
