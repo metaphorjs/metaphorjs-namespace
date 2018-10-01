@@ -365,7 +365,7 @@ MetaphorJs.lib.Namespace = function(root) {
      */
     var get       = function(objName, cacheOnly) {
 
-        var ex = cache.get(objName, true);
+        var ex = cache.get(objName);
         if (ex !== undf || cacheOnly) {
             return ex;
         }

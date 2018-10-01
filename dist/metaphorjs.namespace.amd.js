@@ -291,7 +291,7 @@ var _varType = function(){
  * @param {*} value 
  * @returns {boolean}
  */
-var isObject = function isObject(value) {
+function isObject(value) {
     if (value === null || typeof value != "object") {
         return false;
     }
@@ -365,7 +365,7 @@ MetaphorJs.lib.Namespace = function(root) {
      */
     var get       = function(objName, cacheOnly) {
 
-        var ex = cache.get(objName, true);
+        var ex = cache.get(objName);
         if (ex !== undf || cacheOnly) {
             return ex;
         }
