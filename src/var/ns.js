@@ -1,5 +1,5 @@
 
-var Namespace   = require('../lib/Namespace.js'),
+var lib_Namespace   = require('../lib/Namespace.js'),
     MetaphorJs  = require('metaphorjs-shared/src/MetaphorJs.js');
 
 /**
@@ -9,7 +9,7 @@ var Namespace   = require('../lib/Namespace.js'),
  * @var ns 
  */
 module.exports  = (function(){
-    var ns = new Namespace();
+    var ns = new lib_Namespace();
     ns.register("MetaphorJs", MetaphorJs);
     ns.register("mjs", MetaphorJs);
     return ns;
