@@ -301,6 +301,7 @@ function isObject(value) {
 
 
 
+
 /**
  * @class MetaphorJs.lib.Namespace
  * @code src-docs/examples/main.js

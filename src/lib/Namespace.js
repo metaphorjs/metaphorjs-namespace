@@ -1,6 +1,6 @@
+require("metaphorjs-shared/src/lib/Cache.js");
 
-var lib_Cache = require("metaphorjs-shared/src/lib/Cache.js"),
-    undf = require("metaphorjs-shared/src/var/undf.js"),
+var undf = require("metaphorjs-shared/src/var/undf.js"),
     isObject = require("metaphorjs-shared/src/func/isObject.js"),
     MetaphorJs = require("metaphorjs-shared/src/MetaphorJs.js");
 
@@ -25,7 +25,7 @@ module.exports = MetaphorJs.lib.Namespace = function(root) {
     root        = root || {};
 
     var self    = this,
-        cache   = new lib_Cache(false);
+        cache   = new MetaphorJs.lib.Cache(false);
 
     var parseNs     = function(ns) {
 
