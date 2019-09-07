@@ -1,6 +1,6 @@
 {
     "name": "metaphorjs-namespace",
-    "version": "1.0.4",
+    "version": "2.0.0",
     "authors": [
         "kuindji <kuindji@gmail.com>"
     ],
@@ -10,7 +10,7 @@
         "amd"
     ],
     "keywords": [
-        "namespace"
+        "namespace", "metaphorjs", "cache", "registry"
     ],
     "license": "MIT",
     "homepage": "https://github.com/metaphorjs/metaphorjs-namespace",
