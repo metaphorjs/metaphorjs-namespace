@@ -21,52 +21,14 @@
     },
 
     "build": {
-        "standalone": {
-            "target": "dist/metaphorjs.namespace.js",
-            "files": [
-                "src/lib/Namespace.js"
-            ],
-            "options": {
-                "wrap": true,
-                "global": {
-                    "expose": "MetaphorJs"
-                }
-            }  
-        },
-
-        "standalone-min": {
-            "extend": "standalone",
+        "umd-min": {
+            "library": "MetaphorJsNamespace",
             "target": "dist/metaphorjs.namespace.min.js",
-            "pipe": ["build", "compile", "write"]
-        },
-
-        "npm": {
-            "target": "dist/metaphorjs.namespace.npm.js",
+            "export": "MetaphorJs.lib.Namespace",
+            "useCC": false,
             "files": [
                 "src/lib/Namespace.js"
-            ],
-            "options": {
-                "exports": "MetaphorJs.lib.Namespace"
-            }
-        },
-        
-        "amd": {
-            "target": "dist/metaphorjs.namespace.amd.js",
-            "files": [
-                "src/lib/Namespace.js"
-            ],
-            "options": {
-                "amd": {
-                    "name": "metaphorjs-namespace",
-                    "return": "MetaphorJs.lib.Namespace"
-                }
-            }
-        },
-
-        "amd-min": {
-            "extend": "amd",
-            "target": "dist/metaphorjs.namespace.amd.min.js",
-            "pipe": ["build", "compile", "write"]
+            ]
         }
     }
 }

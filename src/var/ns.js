@@ -1,5 +1,5 @@
-require('../lib/Namespace.js');
-var MetaphorJs  = require('metaphorjs-shared/src/MetaphorJs.js');
+require("../lib/Namespace");
+const MetaphorJs = require('metaphorjs-shared/src/MetaphorJs');
 
 /**
  * Already constructed private namespace 
@@ -7,10 +7,9 @@ var MetaphorJs  = require('metaphorjs-shared/src/MetaphorJs.js');
  * registered at top level.
  * @var ns 
  */
-module.exports  = (function(){
+module.exports = (function(){
     var ns = new MetaphorJs.lib.Namespace;
     ns.register("MetaphorJs", MetaphorJs);
     ns.register("mjs", MetaphorJs);
     return ns;
 }());
-

@@ -2,6 +2,7 @@
     "name": "metaphorjs-namespace",
     "version": "2.0.0",
     "description": "MetaphorJs namespace system",
+    "main": "src/var/ns.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
@@ -12,6 +13,11 @@
     "author": "",
     "license": "MIT",
     "devDependencies": {
-        "mocha": "^5.2.0"
-    }
+        "closure-webpack-plugin": "^2.3.0",
+        "google-closure-compiler": "^20200719.0.0",
+        "mocha": "^5.2.0",
+        "webpack": "^4.44.1",
+        "webpack-cli": "^3.3.12"
+    },
+    "dependencies": {}
 }

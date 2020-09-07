@@ -1,8 +1,7 @@
-require("metaphorjs-shared/src/lib/Cache.js");
-
-var undf = require("metaphorjs-shared/src/var/undf.js"),
-    isObject = require("metaphorjs-shared/src/func/isObject.js"),
-    MetaphorJs = require("metaphorjs-shared/src/MetaphorJs.js");
+require("metaphorjs-shared/src/lib/Cache");
+const undf = require("metaphorjs-shared/src/var/undf");
+const isObject = require("metaphorjs-shared/src/func/isObject");
+const MetaphorJs = require("metaphorjs-shared/src/MetaphorJs");
 
 /**
  * @class MetaphorJs.lib.Namespace
