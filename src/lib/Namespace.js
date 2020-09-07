@@ -1,5 +1,4 @@
 require("metaphorjs-shared/src/lib/Cache");
-const undf = require("metaphorjs-shared/src/var/undf");
 const isObject = require("metaphorjs-shared/src/func/isObject");
 const MetaphorJs = require("metaphorjs-shared/src/MetaphorJs");
 
@@ -45,7 +44,7 @@ module.exports = MetaphorJs.lib.Namespace = function(root) {
 
                 name    = tmp[i];
 
-                if (current[name] === undf) {
+                if (current[name] === undefined) {
                     current[name]   = {};
                 }
 
@@ -68,7 +67,7 @@ module.exports = MetaphorJs.lib.Namespace = function(root) {
     var get       = function(objName, cacheOnly) {
 
         var ex = cache.get(objName);
-        if (ex !== undf || cacheOnly) {
+        if (ex !== undefined || cacheOnly) {
             return ex;
         }
 
@@ -82,8 +81,8 @@ module.exports = MetaphorJs.lib.Namespace = function(root) {
 
             name    = tmp[i];
 
-            if (current[name] === undf) {
-                return undf;
+            if (current[name] === undefined) {
+                return undefined;
             }
 
             current = current[name];
@@ -111,7 +110,7 @@ module.exports = MetaphorJs.lib.Namespace = function(root) {
             parent  = parse[0],
             name    = parse[1];
 
-        if (isObject(parent) && parent[name] === undf) {
+        if (isObject(parent) && parent[name] === undefined) {
             parent[name]        = value;
             cache.add(parse[2], value);
         }
@@ -126,7 +125,7 @@ module.exports = MetaphorJs.lib.Namespace = function(root) {
      * @returns {boolean}
      */
     var exists      = function(objName) {
-        return get(ns, true) !== undf;
+        return get(ns, true) !== undefined;
     };
 
     /**
@@ -163,7 +162,7 @@ module.exports = MetaphorJs.lib.Namespace = function(root) {
 
         var value = cache.get(from);
 
-        if (value !== undf) {
+        if (value !== undefined) {
             cache.add(to, value);
         }
 
